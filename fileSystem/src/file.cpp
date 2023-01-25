@@ -188,7 +188,7 @@ Bool File::mkfile()
     {
     case FT_NoExist:
     case FT_Dir:
-        if (((fp = fopen(_name.getChar(), "w")) != NULL))
+        if (((fp = fopen(_path.getChar(), "w")) != NULL))
         {
             fclose(fp);
             _filetype = FT_File;

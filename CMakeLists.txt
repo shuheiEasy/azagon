@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.11.0)
 
 # プロジェクト名と使用する言語を設定
-project(common_library LANGUAGES CXX VERSION 0.3.1)
+project(common_library LANGUAGES CXX VERSION 0.3.2)
 
 # 引数一覧
 

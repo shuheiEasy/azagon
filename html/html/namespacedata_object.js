@@ -21,6 +21,8 @@ var namespacedata_object =
     [ "command", "namespacedata_object.html#a38eb20ee9d0e605820ad88f411fad440", null ],
     [ "getEnv", "namespacedata_object.html#acd9449da66787b84442ccbfe4649af16", null ],
     [ "len", "namespacedata_object.html#a05f3a08eae016b1ee45f5b291fdbe4c8", null ],
+    [ "toMemberString", "namespacedata_object.html#a1720b44aae4bd799077485d0a21cabcf", null ],
+    [ "toMemberString", "namespacedata_object.html#ac86c2aae2481b702e270330ad37b6c7c", null ],
     [ "toString", "namespacedata_object.html#ac94c7ac7399a1a2a23e5f554386cbf67", null ],
     [ "toString", "namespacedata_object.html#a0a7fa4bc555f01f8c4af9641e31c536a", null ],
     [ "toString", "namespacedata_object.html#a8a3eb705b4ac806613f4add5e2745cc1", null ],

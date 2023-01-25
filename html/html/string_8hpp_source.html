@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">common_library
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.3.2</span>
    </div>
    <div id="projectbrief">c++用共通ライブラリ</div>
   </td>
@@ -188,7 +188,7 @@ $(document).ready(function(){initNavTree('string_8hpp_source.html',''); initResi
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// String型変換</span></div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> dummy = (&amp;T::getLog, 0)&gt;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    template &lt;class T, typename std::enable_if&lt;std::is_base_of&lt;DataObject, T&gt;::value&gt;<a class="code" href="namespacedata_object.html#a268f5e36d58545b30b996f0bfb7394b4">::type</a> * = <span class="keyword">nullptr</span>&gt;</div>
 <div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">  252</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(T *&amp;text)</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    {</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(text-&gt;getLog());</div>

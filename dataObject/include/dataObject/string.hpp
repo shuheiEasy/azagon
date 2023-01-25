@@ -248,7 +248,7 @@ namespace dataObject
     /// @tparam T DataObjectクラス、もしくはその派生クラスを示すポインタ型
     /// @param text データを表すポインタの参照渡し
     /// @return Stringクラス
-    template <class T, int dummy = (&T::getLog, 0)>
+    template <class T, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr>
     inline String toString(T *&text)
     {
         return String(text->getLog());

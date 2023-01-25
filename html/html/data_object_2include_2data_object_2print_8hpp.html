@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">common_library
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.3.2</span>
    </div>
    <div id="projectbrief">c++用共通ライブラリ</div>
   </td>
@@ -84,7 +84,8 @@ $(document).ready(function(){initNavTree('data_object_2include_2data_object_2pri
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">名前空間</a>  </div>
+<a href="#namespaces">名前空間</a> &#124;
+<a href="#func-members">関数</a>  </div>
   <div class="headertitle">
 <div class="title">print.hpp ファイル</div>  </div>
 </div><!--header-->
@@ -92,7 +93,8 @@ $(document).ready(function(){initNavTree('data_object_2include_2data_object_2pri
 
 <p>リストクラスおよび辞書クラスの出力を実装するヘッダファイル  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="list_8hpp_source.html">dataObject/list.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;dataObject/any.hpp&gt;</code><br />
+<code>#include &lt;<a class="el" href="list_8hpp_source.html">dataObject/list.hpp</a>&gt;</code><br />
 <code>#include &lt;dataObject/string.hpp&gt;</code><br />
 <code>#include &lt;dataObject/dict_impl.hpp&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -102,19 +104,28 @@ $(document).ready(function(){initNavTree('data_object_2include_2data_object_2pri
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="data_object_2include_2data_object_2print_8hpp__incl.png" border="0" usemap="#a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2print_8hpp" alt=""/></div>
 <map name="a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2print_8hpp" id="a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2print_8hpp">
-<area shape="rect" title="リストクラスおよび辞書クラスの出力を実装するヘッダファイル" alt="" coords="113,5,356,91"/>
-<area shape="rect" href="list_8hpp.html" title="Listクラスを宣言するヘッダファイル" alt="" coords="43,363,189,389"/>
-<area shape="rect" href="string_8hpp_source.html" title=" " alt="" coords="153,213,316,240"/>
-<area shape="rect" href="dict__impl_8hpp_source.html" title=" " alt="" coords="322,139,507,165"/>
-<area shape="rect" href="data_object_2include_2data_object_2core_8hpp.html" title="dataObjectライブラリの基礎となるヘッダファイル" alt="" coords="150,437,303,464"/>
-<area shape="rect" title=" " alt="" coords="5,512,72,539"/>
-<area shape="rect" title=" " alt="" coords="97,512,167,539"/>
-<area shape="rect" title=" " alt="" coords="191,512,262,539"/>
-<area shape="rect" title=" " alt="" coords="286,512,359,539"/>
-<area shape="rect" title=" " alt="" coords="383,512,475,539"/>
-<area shape="rect" href="list__impl_8hpp.html" title="Listクラスを実装するヘッダファイル" alt="" coords="264,288,445,315"/>
-<area shape="rect" href="dict_8hpp.html" title="Dictクラスを宣言するヘッダファイル" alt="" coords="340,213,489,240"/>
-<area shape="rect" title=" " alt="" coords="514,213,601,240"/>
+<area shape="rect" title="リストクラスおよび辞書クラスの出力を実装するヘッダファイル" alt="" coords="671,5,913,91"/>
+<area shape="rect" href="any_8hpp_source.html" title=" " alt="" coords="604,139,751,165"/>
+<area shape="rect" href="string_8hpp_source.html" title=" " alt="" coords="549,363,712,389"/>
+<area shape="rect" href="list_8hpp.html" title="Listクラスを宣言するヘッダファイル" alt="" coords="703,512,849,539"/>
+<area shape="rect" href="dict__impl_8hpp_source.html" title=" " alt="" coords="830,288,1015,315"/>
+<area shape="rect" href="data_object_8hpp.html" title="Anyクラスを宣言するヘッダファイル" alt="" coords="438,213,634,240"/>
+<area shape="rect" title=" " alt="" coords="659,213,736,240"/>
+<area shape="rect" href="data_object_2include_2data_object_2core_8hpp.html" title="dataObjectライブラリの基礎となるヘッダファイル" alt="" coords="554,587,707,613"/>
+<area shape="rect" href="int_8hpp.html" title="算術クラスを宣言するヘッダファイル" alt="" coords="273,363,415,389"/>
+<area shape="rect" href="float_8hpp.html" title="Floatクラスを宣言するヘッダファイル" alt="" coords="43,363,197,389"/>
+<area shape="rect" href="double_8hpp.html" title="Doubleクラスを宣言するヘッダファイル" alt="" coords="94,288,263,315"/>
+<area shape="rect" href="bool_8hpp.html" title="Boolクラスの宣言" alt="" coords="601,288,754,315"/>
+<area shape="rect" href="functions_8hpp.html" title="dataObjectライブラリの関数を宣言するヘッダファイル" alt="" coords="339,288,525,315"/>
+<area shape="rect" title=" " alt="" coords="409,661,476,688"/>
+<area shape="rect" title=" " alt="" coords="501,661,571,688"/>
+<area shape="rect" title=" " alt="" coords="595,661,666,688"/>
+<area shape="rect" title=" " alt="" coords="690,661,763,688"/>
+<area shape="rect" title=" " alt="" coords="787,661,879,688"/>
+<area shape="rect" href="arithmetic_8hpp_source.html" title=" " alt="" coords="193,437,385,464"/>
+<area shape="rect" href="list__impl_8hpp.html" title="Listクラスを実装するヘッダファイル" alt="" coords="685,437,867,464"/>
+<area shape="rect" href="dict_8hpp.html" title="Dictクラスを宣言するヘッダファイル" alt="" coords="848,363,997,389"/>
+<area shape="rect" title=" " alt="" coords="737,363,823,389"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -124,8 +135,8 @@ $(document).ready(function(){initNavTree('data_object_2include_2data_object_2pri
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="data_object_2include_2data_object_2print_8hpp__dep__incl.png" border="0" usemap="#a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2print_8hppdep" alt=""/></div>
 <map name="a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2print_8hppdep" id="a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2print_8hppdep">
-<area shape="rect" title="リストクラスおよび辞書クラスの出力を実装するヘッダファイル" alt="" coords="1507,5,1749,91"/>
-<area shape="rect" href="data_object_8hpp.html" title="Anyクラスを宣言するヘッダファイル" alt="" coords="1507,139,1749,224"/>
+<area shape="rect" title="リストクラスおよび辞書クラスの出力を実装するヘッダファイル" alt="" coords="697,5,940,91"/>
+<area shape="rect" href="data_object_8hpp.html" title="Anyクラスを宣言するヘッダファイル" alt="" coords="1373,139,1616,224"/>
 <area shape="rect" href="any_8hpp_source.html" title=" " alt="" coords="5,279,283,350"/>
 <area shape="rect" href="any_8cpp_source.html" title=" " alt="" coords="307,279,549,350"/>
 <area shape="rect" href="arithmetic_8cpp_source.html" title=" " alt="" coords="573,279,816,350"/>
@@ -159,6 +170,17 @@ $(document).ready(function(){initNavTree('data_object_2include_2data_object_2pri
 <tr class="memitem:namespacedata_object"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata_object.html">dataObject</a></td></tr>
 <tr class="memdesc:namespacedata_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">dataObjectライブラリの空間。 <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:ac86c2aae2481b702e270330ad37b6c7c"><td class="memTemplParams" colspan="2"><a id="ac86c2aae2481b702e270330ad37b6c7c"></a>
+template&lt;class T , typename std::enable_if&lt; std::is_base_of&lt; DataObject, T &gt;::value &gt;::type *  = nullptr&gt; </td></tr>
+<tr class="memitem:ac86c2aae2481b702e270330ad37b6c7c"><td class="memTemplItemLeft" align="right" valign="top">String&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dataObject::toMemberString</b> (T *&amp;value)</td></tr>
+<tr class="separator:ac86c2aae2481b702e270330ad37b6c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1720b44aae4bd799077485d0a21cabcf"><td class="memTemplParams" colspan="2"><a id="a1720b44aae4bd799077485d0a21cabcf"></a>
+template&lt;class T , typename std::enable_if&lt; std::is_base_of&lt; DataObject, T &gt;::value &gt;::type *  = nullptr&gt; </td></tr>
+<tr class="memitem:a1720b44aae4bd799077485d0a21cabcf"><td class="memTemplItemLeft" align="right" valign="top">String&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dataObject::toMemberString</b> (T &amp;value)</td></tr>
+<tr class="separator:a1720b44aae4bd799077485d0a21cabcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>リストクラスおよび辞書クラスの出力を実装するヘッダファイル </p>
