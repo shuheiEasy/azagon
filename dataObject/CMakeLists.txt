@@ -11,7 +11,7 @@ set(INCLUDE_DIR_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/${INCLUDE_DIR} ${INCLUDE_DIR_P
 file(GLOB_RECURSE source_list "src/*.cpp")
 
 # ライブラリ設定
-add_library(${PROJECT_NAME} STATIC ${source_list})
+add_library(${PROJECT_NAME} SHARED ${source_list})
 add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 # ヘッダー
@@ -28,5 +28,5 @@ if(INSTALL_FLAG)
         EXPORT commonLibraryTargets
         INCLUDES DESTINATION include
         PUBLIC_HEADER DESTINATION include/${PARENT_PROJECT_NAME}/${PROJECT_NAME}
-        ARCHIVE DESTINATION lib/${PARENT_PROJECT_NAME})
+        LIBRARY DESTINATION lib/${PARENT_PROJECT_NAME})
 endif(INSTALL_FLAG)

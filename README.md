@@ -28,3 +28,7 @@
     ```bash
     sudo make install
     ```
+5. パスを通す
+    ```bash
+    export LD_LIBRARY_PATH=/usr/local/lib/common_library:${LD_LIBRARY_PATH}
+    ```
