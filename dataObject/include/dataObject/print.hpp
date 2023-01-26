@@ -10,6 +10,7 @@
 #ifndef COMMON_DATAOBJECT_PRINT_H
 #define COMMON_DATAOBJECT_PRINT_H
 
+#include <dataObject/any.hpp>
 #include <dataObject/list.hpp>
 #include <dataObject/string.hpp>
 #include <dataObject/dict_impl.hpp>
@@ -27,6 +28,44 @@ namespace dataObject
     };
     /// @endcond
 
+    template <class T, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr>
+    inline String toMemberString(T *&value)
+    {
+        String ret;
+        if (String(value->getType()) == "String")
+        {
+            ret += "\"";
+        }
+        ret += value->getLog();
+        if (String(value->getType()) == "String")
+        {
+            ret += "\"";
+        }
+        return ret;
+    }
+
+    template <class T, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr>
+    inline String toMemberString(T &value)
+    {
+        String ret;
+        if (String(value.getType()) == "String")
+        {
+            ret += "\"";
+        }
+        ret += value.getLog();
+        if (String(value.getType()) == "String")
+        {
+            ret += "\"";
+        }
+        return ret;
+    }
+
+    template <class T, typename std::enable_if<!std::is_base_of<DataObject, T>::value>::type * = nullptr>
+    inline String toMemberString(T &value)
+    {
+        return toString(value);
+    }
+
     template <class T>
     const char *List<T>::getLog() const
     {
@@ -35,7 +74,7 @@ namespace dataObject
 
         while (ptr != _tail)
         {
-            String tmp = toString(ptr->data);
+            String tmp = toMemberString(ptr->data);
 
             if (ptr != _head->next)
             {
@@ -55,15 +94,17 @@ namespace dataObject
     {
         String ret = "{ ";
 
-        for(int i = 0; i < _key_list.getSize(); i++){
-            if(i != 0){
+        for (int i = 0; i < _key_list.getSize(); i++)
+        {
+            if (i != 0)
+            {
                 ret += ", ";
-            }            
+            }
             K_T key = _key_list.get(i);
             V_T value = _value_list.get(i);
-            ret += toString(key);
+            ret += toMemberString(key);
             ret += ": ";
-            ret += toString(value);
+            ret += toMemberString(value);
         }
 
         ret += " }";
