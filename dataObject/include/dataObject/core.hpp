@@ -73,6 +73,10 @@ namespace dataObject
          * @return [const char*]　型クラスが保持するログ情報
          */
         virtual const char *getLog() const { return "None"; }
+        /**
+         * @brief デストラクタ
+        */
+        virtual ~DataObject(){}
     };
 
     /// @brief データ情報がない場合を定義するクラス
