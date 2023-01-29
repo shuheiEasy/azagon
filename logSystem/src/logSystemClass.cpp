@@ -83,7 +83,7 @@ int LogSystem::fprint(LogLevel log_level, const dataObject::String &format, ...)
 
     printf("%s", print_text.getChar());
     if(_file!=NULL){
-        _file->writeline(print_text);
+        _file->write(print_text);
     }
 
     return 0;

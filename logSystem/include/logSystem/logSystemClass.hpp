@@ -101,9 +101,9 @@ namespace logSystem
 
         printf("%s", print_text.getLog());
         if(_file!=NULL){
-            _file->writeline(print_text);
+            _file->write(print_text);
         }
-        
+
         return 0;
     }
 }
