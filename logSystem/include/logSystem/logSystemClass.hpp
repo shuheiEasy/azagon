@@ -9,7 +9,7 @@ namespace logSystem
     class LogSystem: public dataObject::DataObject
     {
     private:
-        fileSystem::File *_file;
+        fileSystem::TextFile *_file;
         LogLevel _log_level;
         formatter::Formatter _formatter;
         timeSystem::Datetime _datetime;
@@ -100,7 +100,10 @@ namespace logSystem
         dataObject::String print_text = _generatePrintText(p.getPrintStr());
 
         printf("%s", print_text.getLog());
-
+        if(_file!=NULL){
+            _file->writeline(print_text);
+        }
+        
         return 0;
     }
 }

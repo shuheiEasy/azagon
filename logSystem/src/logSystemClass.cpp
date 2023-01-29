@@ -35,6 +35,21 @@ const char *LogSystem::getType() const{return "LogSystem";}
 void LogSystem::setFile(const char *file_name)
 {
     _file = new TextFile(file_name);
+
+    // ファイルの存在確認
+    bool make_flag = false;
+    if(!_file->exists()){
+        make_flag = true;
+    }else{
+        if(!_file->isfile()){
+            make_flag=true;
+        }
+    }
+
+    // ファイル作成
+    if(make_flag){
+        _file->touch();
+    }
 }
 
 void LogSystem::setFormat(const char *format)
@@ -67,6 +82,9 @@ int LogSystem::fprint(LogLevel log_level, const dataObject::String &format, ...)
     va_end(args);
 
     printf("%s", print_text.getChar());
+    if(_file!=NULL){
+        _file->writeline(print_text);
+    }
 
     return 0;
 }
