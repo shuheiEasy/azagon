@@ -42,7 +42,10 @@ install(
 # config用変数
 set(INCLUDE_DIRS_PATH ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
 
+# インストールさせるファイルを作成するライブラリ
 include(CMakePackageConfigHelpers)
+
+# configファイル
 configure_package_config_file( 
     "Config.cmake.cfg" 
     "common_libraryConfig.cmake"
@@ -51,6 +54,16 @@ configure_package_config_file(
 install(
     FILES "${CMAKE_CURRENT_BINARY_DIR}/common_libraryConfig.cmake"
     DESTINATION "cmake")
+
+# バージョン用ファイル
+write_basic_package_version_file(
+    "common_libraryConfigVersion.cmake"
+    COMPATIBILITY AnyNewerVersion)
+
+install(
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/common_libraryConfigVersion.cmake"
+    DESTINATION "cmake"
+)
 
 else(INSTALL_FLAG)
     message("Install mode OFF")
