@@ -101,6 +101,10 @@ namespace dataObject
         T *getData()
         {
             Data<T> *ptr = dynamic_cast<Data<T> *>(_data_ptr.get());
+            if(ptr==NULL){
+                printf("ERROR: Any型のgetData関数の型を間違えています\n");
+                exit(1);
+            }
             return ptr->_data;
         }
         const char *getLog() const { return _data_ptr->getLog(); }
