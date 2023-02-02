@@ -27,6 +27,7 @@ endif(DOC_FLAG)
 
 # libraryの変数設定
 list(APPEND LIB_PATHS common_library::dataObject )
+list(APPEND LIB_PATHS common_library::threadSystem )
 list(APPEND LIB_PATHS common_library::formatter )
 list(APPEND LIB_PATHS common_library::timeSystem )
 list(APPEND LIB_PATHS common_library::fileSystem )
