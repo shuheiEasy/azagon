@@ -27,10 +27,10 @@ var hierarchy =
       ] ],
       [ "fileSystem::FileExplorer", "classfile_system_1_1_file_explorer.html", null ],
       [ "formatter::Formatter", "classformatter_1_1_formatter.html", null ],
+      [ "logSystem::LogSystem", "classlog_system_1_1_log_system.html", null ],
       [ "timeSystem::Datetime", "classtime_system_1_1_datetime.html", null ],
       [ "timeSystem::Time", "classtime_system_1_1_time.html", null ]
     ] ],
-    [ "logSystem::LogSystem", "classlog_system_1_1_log_system.html", null ],
     [ "logSystem::PrintSystem", "classlog_system_1_1_print_system.html", null ],
     [ "dataObject::Type< TYPE >", "classdata_object_1_1_type.html", null ]
 ];

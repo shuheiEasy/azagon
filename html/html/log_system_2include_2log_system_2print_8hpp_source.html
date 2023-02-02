@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">common_library
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.4.1</span>
    </div>
    <div id="projectbrief">c++用共通ライブラリ</div>
   </td>
@@ -101,49 +101,28 @@ $(document).ready(function(){initNavTree('log_system_2include_2log_system_2print
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        p.<a class="code" href="classlog_system_1_1_print_system.html#a72e4e9efa7dae27430438dcb533484ca">print</a>();</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classlog_system_1_1_log_system.html#a3adaf5022a0e195e1665b5b43e35b648">   16</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classlog_system_1_1_log_system.html#a3adaf5022a0e195e1665b5b43e35b648">LogSystem::print</a>(<a class="code" href="namespacelog_system.html#a0192d61700d98d05456a98b7ad050d96">LogLevel</a> log_level, Args &amp;&amp;...args)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class </span>HeadClass, <span class="keyword">class</span>... TailClass&gt;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> PrintSystem::_extractStr(<span class="keyword">const</span> HeadClass &amp;head, TailClass &amp;...tail)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span> (log_level &lt;= _log_level)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        _setLoglevelText(log_level);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classlog_system_1_1_print_system.html">PrintSystem</a> p(args...);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">dataObject::String</a> print_text = _generatePrintText(p.<a class="code" href="classlog_system_1_1_print_system.html#a6dfa2126237d810bc15df2847e62a921">getPrintStr</a>());</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        printf(<span class="stringliteral">&quot;%s&quot;</span>, print_text.<a class="code" href="classdata_object_1_1_string.html#ac442a1d2bcd7b77a58f2f47bd3d7e612">getLog</a>());</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class </span>HeadClass, <span class="keyword">class</span>... TailClass&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> PrintSystem::_extractStr(<span class="keyword">const</span> HeadClass &amp;head, TailClass &amp;...tail)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        _text_list-&gt;<a class="code" href="classdata_object_1_1_list.html#a10ae0e3af5ec6618755cda6af2da5705">append</a>(<a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">dataObject::toString</a>(head));</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        _extractStr(tail...);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classlog_system_1_1_print_system.html#a820a40d42312fe0e23ea45c675d5326c">   39</a></span>&#160;    <a class="code" href="classlog_system_1_1_print_system.html#a820a40d42312fe0e23ea45c675d5326c">PrintSystem::PrintSystem</a>(<span class="keyword">const</span> Args &amp;...args)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        _text_list = <span class="keyword">new</span> <a class="code" href="classdata_object_1_1_list.html">dataObject::List&lt;dataObject::String&gt;</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        _extractStr(args...);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        _text_list-&gt;<a class="code" href="classdata_object_1_1_list.html#a10ae0e3af5ec6618755cda6af2da5705">append</a>(<a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">dataObject::toString</a>(head));</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        _extractStr(tail...);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classlog_system_1_1_print_system.html#a820a40d42312fe0e23ea45c675d5326c">   23</a></span>&#160;    <a class="code" href="classlog_system_1_1_print_system.html#a820a40d42312fe0e23ea45c675d5326c">PrintSystem::PrintSystem</a>(<span class="keyword">const</span> Args &amp;...args)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        _text_list = <span class="keyword">new</span> <a class="code" href="classdata_object_1_1_list.html">dataObject::List&lt;dataObject::String&gt;</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        _extractStr(args...);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassdata_object_1_1_list_html"><div class="ttname"><a href="classdata_object_1_1_list.html">dataObject::List&lt; dataObject::String &gt;</a></div></div>
 <div class="ttc" id="aclassdata_object_1_1_list_html_a10ae0e3af5ec6618755cda6af2da5705"><div class="ttname"><a href="classdata_object_1_1_list.html#a10ae0e3af5ec6618755cda6af2da5705">dataObject::List::append</a></div><div class="ttdeci">void append(const T &amp;data)</div><div class="ttdoc">リストへデータを追加する関数</div><div class="ttdef"><b>Definition:</b> <a href="list__impl_8hpp_source.html#l00159">list_impl.hpp:159</a></div></div>
-<div class="ttc" id="aclassdata_object_1_1_string_html"><div class="ttname"><a href="classdata_object_1_1_string.html">dataObject::String</a></div><div class="ttdoc">文字列クラス</div><div class="ttdef"><b>Definition:</b> <a href="string_8hpp_source.html#l00010">string.hpp:11</a></div></div>
-<div class="ttc" id="aclassdata_object_1_1_string_html_ac442a1d2bcd7b77a58f2f47bd3d7e612"><div class="ttname"><a href="classdata_object_1_1_string.html#ac442a1d2bcd7b77a58f2f47bd3d7e612">dataObject::String::getLog</a></div><div class="ttdeci">const char * getLog() const</div><div class="ttdoc">ログ出力仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00147">string.cpp:147</a></div></div>
-<div class="ttc" id="aclasslog_system_1_1_log_system_html_a3adaf5022a0e195e1665b5b43e35b648"><div class="ttname"><a href="classlog_system_1_1_log_system.html#a3adaf5022a0e195e1665b5b43e35b648">logSystem::LogSystem::print</a></div><div class="ttdeci">int print(LogLevel log_level, Args &amp;&amp;...args)</div><div class="ttdoc">ログ出力</div><div class="ttdef"><b>Definition:</b> <a href="log_system_2include_2log_system_2print_8hpp_source.html#l00016">print.hpp:16</a></div></div>
-<div class="ttc" id="aclasslog_system_1_1_print_system_html"><div class="ttname"><a href="classlog_system_1_1_print_system.html">logSystem::PrintSystem</a></div><div class="ttdoc">出力ログ生成クラス</div><div class="ttdef"><b>Definition:</b> <a href="log_system_2include_2log_system_2core_8hpp_source.html#l00124">core.hpp:125</a></div></div>
-<div class="ttc" id="aclasslog_system_1_1_print_system_html_a6dfa2126237d810bc15df2847e62a921"><div class="ttname"><a href="classlog_system_1_1_print_system.html#a6dfa2126237d810bc15df2847e62a921">logSystem::PrintSystem::getPrintStr</a></div><div class="ttdeci">dataObject::String getPrintStr()</div><div class="ttdoc">ログ生成</div><div class="ttdef"><b>Definition:</b> <a href="log_system_8cpp_source.html#l00204">logSystem.cpp:204</a></div></div>
-<div class="ttc" id="aclasslog_system_1_1_print_system_html_a72e4e9efa7dae27430438dcb533484ca"><div class="ttname"><a href="classlog_system_1_1_print_system.html#a72e4e9efa7dae27430438dcb533484ca">logSystem::PrintSystem::print</a></div><div class="ttdeci">void print(void)</div><div class="ttdoc">ログ出力</div><div class="ttdef"><b>Definition:</b> <a href="log_system_8cpp_source.html#l00214">logSystem.cpp:214</a></div></div>
-<div class="ttc" id="aclasslog_system_1_1_print_system_html_a820a40d42312fe0e23ea45c675d5326c"><div class="ttname"><a href="classlog_system_1_1_print_system.html#a820a40d42312fe0e23ea45c675d5326c">logSystem::PrintSystem::PrintSystem</a></div><div class="ttdeci">PrintSystem(const Args &amp;...args)</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition:</b> <a href="log_system_2include_2log_system_2print_8hpp_source.html#l00039">print.hpp:39</a></div></div>
+<div class="ttc" id="aclasslog_system_1_1_print_system_html"><div class="ttname"><a href="classlog_system_1_1_print_system.html">logSystem::PrintSystem</a></div><div class="ttdoc">出力ログ生成クラス</div><div class="ttdef"><b>Definition:</b> <a href="log_system_2include_2log_system_2core_8hpp_source.html#l00049">core.hpp:50</a></div></div>
+<div class="ttc" id="aclasslog_system_1_1_print_system_html_a72e4e9efa7dae27430438dcb533484ca"><div class="ttname"><a href="classlog_system_1_1_print_system.html#a72e4e9efa7dae27430438dcb533484ca">logSystem::PrintSystem::print</a></div><div class="ttdeci">void print(void)</div><div class="ttdoc">ログ出力</div><div class="ttdef"><b>Definition:</b> <a href="log_system_8cpp_source.html#l00116">logSystem.cpp:116</a></div></div>
+<div class="ttc" id="aclasslog_system_1_1_print_system_html_a820a40d42312fe0e23ea45c675d5326c"><div class="ttname"><a href="classlog_system_1_1_print_system.html#a820a40d42312fe0e23ea45c675d5326c">logSystem::PrintSystem::PrintSystem</a></div><div class="ttdeci">PrintSystem(const Args &amp;...args)</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition:</b> <a href="log_system_2include_2log_system_2print_8hpp_source.html#l00023">print.hpp:23</a></div></div>
 <div class="ttc" id="anamespacedata_object_html_a4b4f5f56aab693544a3f35510706f489"><div class="ttname"><a href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">dataObject::toString</a></div><div class="ttdeci">String toString(T *&amp;text)</div><div class="ttdoc">Stringクラスへ変換する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8hpp_source.html#l00252">string.hpp:252</a></div></div>
 <div class="ttc" id="anamespacelog_system_html"><div class="ttname"><a href="namespacelog_system.html">logSystem</a></div><div class="ttdoc">ログライブラリ</div><div class="ttdef"><b>Definition:</b> <a href="log_system_2include_2log_system_2core_8hpp_source.html#l00010">core.hpp:11</a></div></div>
-<div class="ttc" id="anamespacelog_system_html_a0192d61700d98d05456a98b7ad050d96"><div class="ttname"><a href="namespacelog_system.html#a0192d61700d98d05456a98b7ad050d96">logSystem::LogLevel</a></div><div class="ttdeci">LogLevel</div><div class="ttdoc">ログ出力レベルの列挙体</div><div class="ttdef"><b>Definition:</b> <a href="log_system_2include_2log_system_2core_8hpp_source.html#l00013">core.hpp:14</a></div></div>
 <div class="ttc" id="anamespacelog_system_html_afe3a1fe0fe449d3f9e128a6f71d58312"><div class="ttname"><a href="namespacelog_system.html#afe3a1fe0fe449d3f9e128a6f71d58312">logSystem::print</a></div><div class="ttdeci">void print(const Args &amp;...args)</div><div class="ttdoc">ログ出力</div><div class="ttdef"><b>Definition:</b> <a href="log_system_2include_2log_system_2print_8hpp_source.html#l00009">print.hpp:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
