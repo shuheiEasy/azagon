@@ -12,6 +12,7 @@ set(INSTALL_FLAG OFF CACHE BOOL ON)
 
 # サブプロジェクト設定
 add_subdirectory(dataObject)
+add_subdirectory(threadSystem)
 add_subdirectory(formatter)
 add_subdirectory(timeSystem)
 add_subdirectory(fileSystem)
