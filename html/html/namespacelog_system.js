@@ -1,7 +1,7 @@
 var namespacelog_system =
 [
-    [ "LogSystem", "classlog_system_1_1_log_system.html", "classlog_system_1_1_log_system" ],
     [ "PrintSystem", "classlog_system_1_1_print_system.html", "classlog_system_1_1_print_system" ],
+    [ "LogSystem", "classlog_system_1_1_log_system.html", "classlog_system_1_1_log_system" ],
     [ "LogLevel", "namespacelog_system.html#a0192d61700d98d05456a98b7ad050d96", [
       [ "NOTSET", "namespacelog_system.html#a0192d61700d98d05456a98b7ad050d96a33c1fdc10b5ef07a2b6e07ccc196c6a4", null ],
       [ "DEBUG", "namespacelog_system.html#a0192d61700d98d05456a98b7ad050d96ac37988288b081ce2986c880dda7114df", null ],

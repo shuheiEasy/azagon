@@ -23,8 +23,8 @@ var annotated_dup =
       [ "Formatter", "classformatter_1_1_formatter.html", "classformatter_1_1_formatter" ]
     ] ],
     [ "logSystem", "namespacelog_system.html", [
-      [ "LogSystem", "classlog_system_1_1_log_system.html", "classlog_system_1_1_log_system" ],
-      [ "PrintSystem", "classlog_system_1_1_print_system.html", "classlog_system_1_1_print_system" ]
+      [ "PrintSystem", "classlog_system_1_1_print_system.html", "classlog_system_1_1_print_system" ],
+      [ "LogSystem", "classlog_system_1_1_log_system.html", "classlog_system_1_1_log_system" ]
     ] ],
     [ "timeSystem", "namespacetime_system.html", [
       [ "Time", "classtime_system_1_1_time.html", "classtime_system_1_1_time" ],
