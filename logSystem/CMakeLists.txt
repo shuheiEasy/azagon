@@ -14,7 +14,11 @@ set(INCLUDE_DIR_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/${INCLUDE_DIR} ${INCLUDE_DIR_P
 file(GLOB_RECURSE source_list "src/*.cpp")
 
 # ライブラリ設定
-add_library(${PROJECT_NAME} SHARED ${source_list})
+if(STATIC_LINK_FLAG)
+    add_library(${PROJECT_NAME} STATIC ${source_list})
+else(STATIC_LINK_FLAG)
+    add_library(${PROJECT_NAME} SHARED ${source_list})
+endif(STATIC_LINK_FLAG)
 add_library(${PACKAGE_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 # リンク呼び出し

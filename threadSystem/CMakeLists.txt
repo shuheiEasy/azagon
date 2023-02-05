@@ -15,7 +15,11 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 # ライブラリ設定
-add_library(${PROJECT_NAME} SHARED ${source_list})
+if(STATIC_LINK_FLAG)
+    add_library(${PROJECT_NAME} STATIC ${source_list})
+else(STATIC_LINK_FLAG)
+    add_library(${PROJECT_NAME} SHARED ${source_list})
+endif(STATIC_LINK_FLAG)
 add_library(${PACKAGE_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 target_link_libraries(${PROJECT_NAME} ${PACKAGE_NAME}::dataObject)
 target_link_libraries(${PROJECT_NAME} Threads::Threads)
