@@ -25,7 +25,6 @@ endif(DOC_FLAG)
 
 # libraryの変数設定
 list(APPEND LIB_PATHS ${PROJECT_NAME}::dataObject )
-list(APPEND LIB_PATHS ${PROJECT_NAME}::threadSystem )
 list(APPEND LIB_PATHS ${PROJECT_NAME}::formatter )
 list(APPEND LIB_PATHS ${PROJECT_NAME}::timeSystem )
 list(APPEND LIB_PATHS ${PROJECT_NAME}::fileSystem )
