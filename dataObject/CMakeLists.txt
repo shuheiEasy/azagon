@@ -24,7 +24,7 @@ set_target_properties(
 if(INSTALL_FLAG)
     install(
         TARGETS ${PROJECT_NAME}
-        EXPORT commonLibraryTargets
+        EXPORT ${CMAKE_PROJECT_NAME}Targets
         INCLUDES DESTINATION include
         PUBLIC_HEADER DESTINATION include/${CMAKE_PROJECT_NAME}/${PROJECT_NAME}
         LIBRARY DESTINATION lib/${CMAKE_PROJECT_NAME})
