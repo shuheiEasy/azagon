@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "My Project", "index.html", [
+  [ "azagon", "index.html", [
     [ "C++用共通ライブラリ", "index.html", [
       [ "各ライブラリ", "index.html#autotoc_md0", null ]
     ] ],
