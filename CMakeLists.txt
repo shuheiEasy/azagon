@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.11.0)
 
 # プロジェクト名と使用する言語を設定
-project(common_library LANGUAGES CXX VERSION 0.4.1)
+project(common_library LANGUAGES CXX VERSION 0.5.0)
 
 # 引数一覧
 
@@ -12,6 +12,7 @@ set(INSTALL_FLAG OFF CACHE BOOL ON)
 
 # サブプロジェクト設定
 add_subdirectory(dataObject)
+add_subdirectory(threadSystem)
 add_subdirectory(formatter)
 add_subdirectory(timeSystem)
 add_subdirectory(fileSystem)
@@ -26,6 +27,7 @@ endif(DOC_FLAG)
 
 # libraryの変数設定
 list(APPEND LIB_PATHS common_library::dataObject )
+list(APPEND LIB_PATHS common_library::threadSystem )
 list(APPEND LIB_PATHS common_library::formatter )
 list(APPEND LIB_PATHS common_library::timeSystem )
 list(APPEND LIB_PATHS common_library::fileSystem )
