@@ -11,10 +11,15 @@ set(INCLUDE_DIR_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/${INCLUDE_DIR} ${INCLUDE_DIR_P
 # # C++ファイル取得
 file(GLOB_RECURSE source_list "src/*.cpp")
 
+# Thread関連ライブラリ取得
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 # ライブラリ設定
 add_library(${PROJECT_NAME} SHARED ${source_list})
 add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 target_link_libraries(${PROJECT_NAME} common_library::dataObject)
+target_link_libraries(${PROJECT_NAME} Threads::Threads)
 
 # ヘッダー
 file(GLOB_RECURSE header_list "${INCLUDE_DIR}/*.hpp")
