@@ -16,7 +16,7 @@
 <tr style="border:none;">
 <td style="border:none;">
 \endhtmlonly
-@ref dataObject "threadSystem"
+@ref threadSystem "threadSystem"
 \htmlonly
 </td>
 <td style="border:none;">
