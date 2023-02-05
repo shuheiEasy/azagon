@@ -1,5 +1,5 @@
 # プロジェクト名を設定
-project("${CMAKE_PROJECT_NAME}_doc")
+project("${PACKAGE_NAME}_doc")
 
 find_package(Doxygen)
 
