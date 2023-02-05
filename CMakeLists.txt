@@ -33,10 +33,10 @@ list(APPEND LIB_PATHS ${PROJECT_NAME}::logSystem )
 if(INSTALL_FLAG)
 # インストール
 install(
-    EXPORT commonLibraryTargets
+    EXPORT ${PROJECT_NAME}Targets
     DESTINATION cmake
     NAMESPACE ${PROJECT_NAME}::
-    FILE commonLibraryTargets.cmake)
+    FILE ${PROJECT_NAME}Targets.cmake)
 
 # config用変数
 set(INCLUDE_DIRS_PATH ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
