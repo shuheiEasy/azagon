@@ -1,16 +1,17 @@
-# common_library
+# azagon
 
 ## ライブラリ一覧
 |ライブラリ名|ライブラリの機能|
 |:-:|:-:|
 | dataObject | 型クラス |
 | fileSystem | ファイル操作 |
+| threadSystem | スレッド |
 | logSystem  | ログ出力 |
 | formatter  | 書式 |
 | timeSystem | 時間 |
 
 ## ドキュメント
-[ドキュメント](https://shuheieasy.github.io/common_library/)
+[ドキュメント](https://shuheieasy.github.io/azagon/)
 
 ## インストール方法
 1. 本リポジトリをダウンロードした場所へ移動
@@ -30,5 +31,5 @@
     ```
 5. パスを通す
     ```bash
-    export LD_LIBRARY_PATH=/usr/local/lib/common_library:${LD_LIBRARY_PATH}
+    export LD_LIBRARY_PATH=/usr/local/lib/azagon:${LD_LIBRARY_PATH}
     ```

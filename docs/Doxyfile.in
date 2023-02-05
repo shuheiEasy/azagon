@@ -865,6 +865,7 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = @CMAKE_CURRENT_SOURCE_DIR@/../dataObject \
+                         @CMAKE_CURRENT_SOURCE_DIR@/../threadSystem \
                          @CMAKE_CURRENT_SOURCE_DIR@/../fileSystem \
                          @CMAKE_CURRENT_SOURCE_DIR@/../formatter \
                          @CMAKE_CURRENT_SOURCE_DIR@/../logSystem \

@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "common_library", "index.html", [
+  [ "My Project", "index.html", [
     [ "C++用共通ライブラリ", "index.html", [
       [ "各ライブラリ", "index.html#autotoc_md0", null ]
     ] ],
@@ -59,8 +59,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classfile_system_1_1_file.html#a4329641f80b3e18e179b26f2a64dd20e",
-"functions_w.html"
+"classfile_system_1_1_file.html#ac704ebdf5f57d7a1c5ddf409d797fb69",
+"functions_vars.html"
 ];
 
 var SYNCONMSG = 'クリックで同期表示が無効になります';

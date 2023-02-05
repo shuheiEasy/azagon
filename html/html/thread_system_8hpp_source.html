@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: /home/iijimarobot/workspace/Ubuntu/workspace/gitSpace/common_library/common_library/threadSystem/include/threadSystem/threadSystem.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   &#160;<span id="projectnumber">0.5.0</span>
+   </div>
+   <div id="projectbrief">c++用共通ライブラリ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('thread_system_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">threadSystem.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef COMMON_THREADSYSTEM_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define COMMON_THREADSYSTEM_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="data_object_8hpp.html">dataObject/dataObject.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacethread_system.html">    8</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacethread_system.html">threadSystem</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classthread_system_1_1_thread.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classthread_system_1_1_thread.html">Thread</a> : <span class="keyword">public</span> <a class="code" href="classdata_object_1_1_data_object.html">dataObject::DataObject</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">enum</span> ThreadStatus</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            NOTSET,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            INIT,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            ACTIVE,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            RUNNING,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            DEACTIVE</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        };</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::thread *thread;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        ThreadStatus thread_status;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> _init();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> _kill();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class </span>F, <span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">void</span> _run(F &amp;&amp;f, Args... args);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classthread_system_1_1_thread.html#a95c703fb8f2f27cb64f475a8c940864a">Thread</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class </span>F, <span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classthread_system_1_1_thread.html#a95c703fb8f2f27cb64f475a8c940864a">Thread</a>(F f, Args... args);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classthread_system_1_1_thread.html#a37d9edd3a1a776cbc27dedff949c9726">~Thread</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classthread_system_1_1_thread.html#af1b9da363e1292265f81797b01621ae2">isAlive</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classthread_system_1_1_thread.html#a4d9d788e98388a3217831a9046709deb">join</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class </span>F, <span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classthread_system_1_1_thread.html#ab2333b1c9900b4f879cea3c9757149f6">setTarget</a>(F f, Args... args);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classthread_system_1_1_thread.html#a1f53ee62bd30a7924186ef26150ce262">start</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classthread_system_1_1_thread.html#acd9c4df038169a35458c2a817f3772d3">   69</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classthread_system_1_1_thread.html#acd9c4df038169a35458c2a817f3772d3">getType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Thread&quot;</span>; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classthread_system_1_1_thread.html#a4a78553aec2d794c4f06ab930c2e17e3">getSize</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classthread_system_1_1_thread.html#a76e18f0b84ce83ed4890d945218380ba">getLog</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class </span>F, <span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classthread_system_1_1_thread.html#ac3c4e3389d188ba3b67f23aa5f46a52b">   78</a></span>&#160;    <a class="code" href="classthread_system_1_1_thread.html#a95c703fb8f2f27cb64f475a8c940864a">Thread::Thread</a>(F f, Args... args)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        _init();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="classthread_system_1_1_thread.html#ab2333b1c9900b4f879cea3c9757149f6">setTarget</a>(f, args...);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class </span>F, <span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classthread_system_1_1_thread.html#ab2333b1c9900b4f879cea3c9757149f6">   85</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classthread_system_1_1_thread.html#ab2333b1c9900b4f879cea3c9757149f6">Thread::setTarget</a>(F f, Args... args)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        _kill();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        thread_status = INIT;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        thread = <span class="keyword">new</span> std::thread(&amp;Thread::_run&lt;F, Args...&gt;, <span class="keyword">this</span>, f, args...);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class </span>F, <span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> Thread::_run(F &amp;&amp;f, Args... args)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">while</span> (thread_status == INIT)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">if</span> (thread_status == ACTIVE)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            std::thread th(f, args...);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            thread_status = RUNNING;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            th.join();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            thread_status = DEACTIVE;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassdata_object_1_1_data_object_html"><div class="ttname"><a href="classdata_object_1_1_data_object.html">dataObject::DataObject</a></div><div class="ttdoc">基本型クラス</div><div class="ttdef"><b>Definition:</b> <a href="data_object_2include_2data_object_2core_8hpp_source.html#l00055">core.hpp:56</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html"><div class="ttname"><a href="classthread_system_1_1_thread.html">threadSystem::Thread</a></div><div class="ttdoc">スレッドクラス</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8hpp_source.html#l00011">threadSystem.hpp:12</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_a1f53ee62bd30a7924186ef26150ce262"><div class="ttname"><a href="classthread_system_1_1_thread.html#a1f53ee62bd30a7924186ef26150ce262">threadSystem::Thread::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">スレッドの開始</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8cpp_source.html#l00025">threadSystem.cpp:25</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_a37d9edd3a1a776cbc27dedff949c9726"><div class="ttname"><a href="classthread_system_1_1_thread.html#a37d9edd3a1a776cbc27dedff949c9726">threadSystem::Thread::~Thread</a></div><div class="ttdeci">~Thread()</div><div class="ttdoc">デストラクタ</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8cpp_source.html#l00011">threadSystem.cpp:11</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_a4a78553aec2d794c4f06ab930c2e17e3"><div class="ttname"><a href="classthread_system_1_1_thread.html#a4a78553aec2d794c4f06ab930c2e17e3">threadSystem::Thread::getSize</a></div><div class="ttdeci">int getSize() const</div><div class="ttdoc">継承した関数</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8cpp_source.html#l00058">threadSystem.cpp:58</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_a4d9d788e98388a3217831a9046709deb"><div class="ttname"><a href="classthread_system_1_1_thread.html#a4d9d788e98388a3217831a9046709deb">threadSystem::Thread::join</a></div><div class="ttdeci">void join()</div><div class="ttdoc">スレッドの終了まで待機</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8cpp_source.html#l00033">threadSystem.cpp:33</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_a76e18f0b84ce83ed4890d945218380ba"><div class="ttname"><a href="classthread_system_1_1_thread.html#a76e18f0b84ce83ed4890d945218380ba">threadSystem::Thread::getLog</a></div><div class="ttdeci">const char * getLog() const</div><div class="ttdoc">ログ出力仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8cpp_source.html#l00066">threadSystem.cpp:66</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_a95c703fb8f2f27cb64f475a8c940864a"><div class="ttname"><a href="classthread_system_1_1_thread.html#a95c703fb8f2f27cb64f475a8c940864a">threadSystem::Thread::Thread</a></div><div class="ttdeci">Thread()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8cpp_source.html#l00006">threadSystem.cpp:6</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_ab2333b1c9900b4f879cea3c9757149f6"><div class="ttname"><a href="classthread_system_1_1_thread.html#ab2333b1c9900b4f879cea3c9757149f6">threadSystem::Thread::setTarget</a></div><div class="ttdeci">void setTarget(F f, Args... args)</div><div class="ttdoc">実行する関数の設定</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8hpp_source.html#l00085">threadSystem.hpp:85</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_acd9c4df038169a35458c2a817f3772d3"><div class="ttname"><a href="classthread_system_1_1_thread.html#acd9c4df038169a35458c2a817f3772d3">threadSystem::Thread::getType</a></div><div class="ttdeci">const char * getType() const</div><div class="ttdoc">継承した関数</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8hpp_source.html#l00069">threadSystem.hpp:69</a></div></div>
+<div class="ttc" id="aclassthread_system_1_1_thread_html_af1b9da363e1292265f81797b01621ae2"><div class="ttname"><a href="classthread_system_1_1_thread.html#af1b9da363e1292265f81797b01621ae2">threadSystem::Thread::isAlive</a></div><div class="ttdeci">bool isAlive() const</div><div class="ttdoc">スレッドが稼働中か判定</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8cpp_source.html#l00016">threadSystem.cpp:16</a></div></div>
+<div class="ttc" id="adata_object_8hpp_html"><div class="ttname"><a href="data_object_8hpp.html">dataObject.hpp</a></div><div class="ttdoc">Anyクラスを宣言するヘッダファイル</div></div>
+<div class="ttc" id="anamespacethread_system_html"><div class="ttname"><a href="namespacethread_system.html">threadSystem</a></div><div class="ttdoc">スレッドライブラリ</div><div class="ttdef"><b>Definition:</b> <a href="thread_system_8hpp_source.html#l00008">threadSystem.hpp:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_09a3f5de0991353e96b0713821b92fb6.html">common_library</a></li><li class="navelem"><a class="el" href="dir_4048c982c227f832dcdd70019a6d3aaf.html">threadSystem</a></li><li class="navelem"><a class="el" href="dir_437286787cfde28bd85c646bf609674d.html">include</a></li><li class="navelem"><a class="el" href="dir_0113a95f65d61960e6488c0cf728c39d.html">threadSystem</a></li><li class="navelem"><b>threadSystem.hpp</b></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
