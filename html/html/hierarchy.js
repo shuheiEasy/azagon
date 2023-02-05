@@ -28,6 +28,7 @@ var hierarchy =
       [ "fileSystem::FileExplorer", "classfile_system_1_1_file_explorer.html", null ],
       [ "formatter::Formatter", "classformatter_1_1_formatter.html", null ],
       [ "logSystem::LogSystem", "classlog_system_1_1_log_system.html", null ],
+      [ "threadSystem::Thread", "classthread_system_1_1_thread.html", null ],
       [ "timeSystem::Datetime", "classtime_system_1_1_datetime.html", null ],
       [ "timeSystem::Time", "classtime_system_1_1_time.html", null ]
     ] ],

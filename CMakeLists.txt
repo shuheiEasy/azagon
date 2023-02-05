@@ -2,9 +2,7 @@
 cmake_minimum_required(VERSION 3.11.0)
 
 # プロジェクト名と使用する言語を設定
-project(common_library LANGUAGES CXX VERSION 0.4.1)
-
-# 引数一覧
+project(azagon LANGUAGES CXX VERSION 0.5.0)
 
 # doxygen制御
 set(DOC_FLAG OFF CACHE BOOL ON)
@@ -12,6 +10,7 @@ set(INSTALL_FLAG OFF CACHE BOOL ON)
 
 # サブプロジェクト設定
 add_subdirectory(dataObject)
+add_subdirectory(threadSystem)
 add_subdirectory(formatter)
 add_subdirectory(timeSystem)
 add_subdirectory(fileSystem)
@@ -25,39 +24,52 @@ else(DOC_FLAG)
 endif(DOC_FLAG)
 
 # libraryの変数設定
-list(APPEND LIB_PATHS common_library::dataObject )
-list(APPEND LIB_PATHS common_library::formatter )
-list(APPEND LIB_PATHS common_library::timeSystem )
-list(APPEND LIB_PATHS common_library::fileSystem )
-list(APPEND LIB_PATHS common_library::logSystem )
+list(APPEND LIB_PATHS ${PROJECT_NAME}::dataObject )
+list(APPEND LIB_PATHS ${PROJECT_NAME}::formatter )
+list(APPEND LIB_PATHS ${PROJECT_NAME}::timeSystem )
+list(APPEND LIB_PATHS ${PROJECT_NAME}::fileSystem )
+list(APPEND LIB_PATHS ${PROJECT_NAME}::logSystem )
 
 if(INSTALL_FLAG)
 # インストール
 install(
     EXPORT commonLibraryTargets
     DESTINATION cmake
-    NAMESPACE common_library::
+    NAMESPACE ${PROJECT_NAME}::
     FILE commonLibraryTargets.cmake)
 
 # config用変数
 set(INCLUDE_DIRS_PATH ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
 
+# インストールさせるファイルを作成するライブラリ
 include(CMakePackageConfigHelpers)
+
+# configファイル
 configure_package_config_file( 
     "Config.cmake.cfg" 
-    "common_libraryConfig.cmake"
+    "${PROJECT_NAME}Config.cmake"
     INSTALL_DESTINATION cmake)
 
 install(
-    FILES "${CMAKE_CURRENT_BINARY_DIR}/common_libraryConfig.cmake"
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
     DESTINATION "cmake")
+
+# バージョン用ファイル
+write_basic_package_version_file(
+    "${PROJECT_NAME}ConfigVersion.cmake"
+    COMPATIBILITY AnyNewerVersion)
+
+install(
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+    DESTINATION "cmake"
+)
 
 else(INSTALL_FLAG)
     message("Install mode OFF")
 endif(INSTALL_FLAG)
 
 # ソースモード
-if(NOT common_library_IS_TOP_LEVEL)
-    set(common_library_INCLUDE_DIR ${INCLUDE_DIR_PATHS} PARENT_SCOPE)
-    set(common_library_LIBS ${LIB_PATHS} PARENT_SCOPE)
+if(NOT ${PROJECT_NAME}_IS_TOP_LEVEL)
+    set(${PROJECT_NAME}_INCLUDE_DIR ${INCLUDE_DIR_PATHS} PARENT_SCOPE)
+    set(${PROJECT_NAME}_LIBS ${LIB_PATHS} PARENT_SCOPE)
 endif()

@@ -1,6 +1,5 @@
 # プロジェクト名を設定
 project(fileSystem)
-set(PARENT_PROJECT_NAME common_library)
 
 # インクルードフォルダ追加
 set(INCLUDE_DIR include)
@@ -13,8 +12,8 @@ file(GLOB_RECURSE source_list "src/*.cpp")
 
 # ライブラリ設定
 add_library(${PROJECT_NAME} SHARED ${source_list})
-add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
-target_link_libraries(${PROJECT_NAME} common_library::dataObject)
+add_library(${CMAKE_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME} ${CMAKE_PROJECT_NAME}::dataObject)
 
 # ヘッダー
 file(GLOB_RECURSE header_list "${INCLUDE_DIR}/*.hpp")
@@ -27,8 +26,8 @@ set_target_properties(
 if(INSTALL_FLAG)
     install(
         TARGETS ${PROJECT_NAME}
-        EXPORT commonLibraryTargets
+        EXPORT ${CMAKE_PROJECT_NAME}Targets
         INCLUDES DESTINATION include
-        PUBLIC_HEADER DESTINATION include/${PARENT_PROJECT_NAME}/${PROJECT_NAME}
-        LIBRARY DESTINATION lib/${PARENT_PROJECT_NAME})
+        PUBLIC_HEADER DESTINATION include/${CMAKE_PROJECT_NAME}/${PROJECT_NAME}
+        LIBRARY DESTINATION lib/${CMAKE_PROJECT_NAME})
 endif(INSTALL_FLAG)

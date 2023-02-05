@@ -1,8 +1,9 @@
 var NAVTREEINDEX2 =
 {
-"functions_w.html":[2,3,0,18],
-"functions_y.html":[2,3,0,19],
-"functions_~.html":[2,3,0,20],
+"functions_vars.html":[2,3,2],
+"functions_w.html":[2,3,0,19],
+"functions_y.html":[2,3,0,20],
+"functions_~.html":[2,3,0,21],
 "globals.html":[3,1,0],
 "globals_defs.html":[3,1,1],
 "hierarchy.html":[2,2],
@@ -77,13 +78,16 @@ var NAVTREEINDEX2 =
 "namespacemembers_enum.html":[1,1,2],
 "namespacemembers_func.html":[1,1,1],
 "namespaces.html":[1,0],
-"namespacetime_system.html":[1,0,4],
-"namespacetime_system.html#a47de7c176a2bad4dd4c59a8d77b4bf8a":[1,0,4,2],
-"namespacetime_system.html#acba00d76e06a51fad8560d4d1e346500":[1,0,4,3],
+"namespacethread_system.html":[1,0,4],
+"namespacetime_system.html":[1,0,5],
+"namespacetime_system.html#a47de7c176a2bad4dd4c59a8d77b4bf8a":[1,0,5,2],
+"namespacetime_system.html#acba00d76e06a51fad8560d4d1e346500":[1,0,5,3],
 "pages.html":[],
 "string_8cpp_source.html":[3,0,0,0,1,7],
 "string_8hpp_source.html":[3,0,0,0,0,0,14],
 "text_file_8cpp_source.html":[3,0,0,1,1,3],
-"time_8cpp_source.html":[3,0,0,4,1,1],
-"time_system_8hpp_source.html":[3,0,0,4,0,0,0]
+"thread_system_8cpp_source.html":[3,0,0,4,1,0],
+"thread_system_8hpp_source.html":[3,0,0,4,0,0,0],
+"time_8cpp_source.html":[3,0,0,5,1,1],
+"time_system_8hpp_source.html":[3,0,0,5,0,0,0]
 };

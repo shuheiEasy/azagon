@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['read_117',['read',['../classfile_system_1_1_text_file.html#ab28fe625793285b594e24cfd57d8c43d',1,'fileSystem::TextFile::read(dataObject::String &amp;output)'],['../classfile_system_1_1_text_file.html#afcfdc4bb34e80b4896d435b42a2fd757',1,'fileSystem::TextFile::read()']]],
-  ['readlines_118',['readlines',['../classfile_system_1_1_text_file.html#ab8329871843ed2833bf2bddf8020f158',1,'fileSystem::TextFile::readlines(dataObject::List&lt; dataObject::String &gt; &amp;text_lines)'],['../classfile_system_1_1_text_file.html#a60bd2ea82b53926833013b23ff4c6cec',1,'fileSystem::TextFile::readlines()']]]
+  ['pop_115',['pop',['../classdata_object_1_1_string.html#ad17d222457b2b3beca6f23b97510e1f0',1,'dataObject::String']]],
+  ['print_116',['print',['../classlog_system_1_1_print_system.html#a72e4e9efa7dae27430438dcb533484ca',1,'logSystem::PrintSystem::print()'],['../classlog_system_1_1_log_system.html#a3adaf5022a0e195e1665b5b43e35b648',1,'logSystem::LogSystem::print()'],['../namespacelog_system.html#afe3a1fe0fe449d3f9e128a6f71d58312',1,'logSystem::print()']]],
+  ['print_2ehpp_117',['print.hpp',['../data_object_2include_2data_object_2print_8hpp.html',1,'']]],
+  ['printsystem_118',['PrintSystem',['../classlog_system_1_1_print_system.html',1,'logSystem::PrintSystem'],['../classlog_system_1_1_print_system.html#a820a40d42312fe0e23ea45c675d5326c',1,'logSystem::PrintSystem::PrintSystem()']]]
 ];

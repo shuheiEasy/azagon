@@ -1,6 +1,5 @@
 # プロジェクト名を設定
-project(common_library_doc)
-set(PARENT_PROJECT_NAME common_library)
+project("${CMAKE_PROJECT_NAME}_doc")
 
 find_package(Doxygen)
 
