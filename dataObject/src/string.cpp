@@ -45,6 +45,12 @@ String::String(const double &data)
     _fromDouble(data, -1);
 }
 
+String::String(const char letter)
+{
+    _init();
+    _fromChar(letter, -1);
+}
+
 String::String(const char *text)
 {
     _init();
@@ -75,6 +81,11 @@ void String::append(const float &data)
 void String::append(const double &data)
 {
     _fromDouble(data, -1);
+}
+
+void String::append(const char letter)
+{
+    _fromChar(letter, -1);
 }
 
 void String::append(const char *text)
@@ -231,6 +242,16 @@ bool String::operator==(const double &data) const
     }
 }
 
+bool String::operator==(const char letter) const
+{
+    String tmp(letter);
+    if (tmp == *this)
+    {
+        return true;
+    }
+    return false;
+}
+
 bool String::operator==(const char *text) const
 {
     if (strcmp(getChar(), text) == 0)
@@ -267,6 +288,11 @@ bool String::operator!=(const double &data) const
     return !operator==(data);
 }
 
+bool String::operator!=(const char letter) const
+{
+    return !operator==(letter);
+}
+
 bool String::operator!=(const char *text) const
 {
     return !operator==(text);
@@ -300,6 +326,14 @@ String String::operator=(const double &data)
 {
     clear();
     _fromDouble(data, -1);
+    return *this;
+}
+
+String String::operator=(const char letter)
+{
+    clear();
+    _fromChar(letter, -1);
+
     return *this;
 }
 
@@ -340,6 +374,13 @@ String String::operator+(const double &data) const
     return ret;
 }
 
+String String::operator+(const char letter) const
+{
+    String ret = *this;
+    ret.append(letter);
+    return ret;
+}
+
 String String::operator+(const char *str) const
 {
     String ret = *this;
@@ -369,6 +410,12 @@ String &String::operator+=(const float &data)
 String &String::operator+=(const double &data)
 {
     _fromDouble(data, -1);
+    return *this;
+}
+
+String &String::operator+=(const char letter)
+{
+    _fromChar(letter, -1);
     return *this;
 }
 
@@ -428,6 +475,12 @@ String String::slice(int start, int length) const
 
     return ret;
 }
+
+List<String> String::split(const char sep)
+{
+    return split(String(sep));
+}
+
 
 List<String> String::split(const char *sep)
 {
@@ -713,10 +766,10 @@ void String::_converter(Moji *&ret, const char *text, int &size)
         {
             ret[size].data[i] = text[pos + i];
         }
-        //　容量
+        // 　容量
         ret[size].size = len;
 
-        //後始末
+        // 後始末
         pos += len;
         size++;
     }
@@ -862,7 +915,7 @@ int String::_del(int start, int length)
         return -1;
     }
 
-    //データ移動
+    // データ移動
     int pos = 0;
     for (int i = end_pos; i < _memory_unit * _MEMORY_SIZE; i++)
     {
@@ -876,7 +929,7 @@ int String::_del(int start, int length)
         pos++;
     }
 
-    //文字数削除
+    // 文字数削除
     _length -= end_pos - start_pos;
 
     return 0;
@@ -897,7 +950,7 @@ void String::_init()
     // 記憶領域確保
     _malloc(_data, _memory_unit * _MEMORY_SIZE);
 
-    //文字コード設定
+    // 文字コード設定
     setlocale(LC_CTYPE, LANGUAGECODE);
 }
 
@@ -921,6 +974,12 @@ void String::_free_ptr()
         }
         _memory_unit = 0;
     }
+}
+
+void String::_fromChar(const char letter, const int start)
+{
+    char text[] = {letter, '\0'};
+    _setData(text, start);
 }
 
 void String::_fromInt(const int data, const int start)

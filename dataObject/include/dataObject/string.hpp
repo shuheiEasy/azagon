@@ -28,6 +28,7 @@ namespace dataObject
         int _del(int start, int length);
         void _init();
         void _free_ptr();
+        void _fromChar(const char letter, const int start);
         void _fromInt(const int data, const int start);
         void _fromFloat(const float data, const int start);
         void _fromDouble(const double data, const int start);
@@ -57,6 +58,9 @@ namespace dataObject
         /// @details 数値を文字列に変換してデータを格納する
         String(const double &data);
         /// @brief コンストラクタ
+        /// @param letter const char 型の文字列
+        String(const char letter);
+        /// @brief コンストラクタ
         /// @param text const char *型の文字列
         String(const char *text);
         /// @brief コンストラクタ
@@ -76,6 +80,9 @@ namespace dataObject
         /// @param data double型のデータ
         /// @details 数値を文字列に変換して追加する
         void append(const double &data);
+        /// @brief 文字列を追加する関数
+        /// @param text const char *型の文字列
+        void append(const char letter);
         /// @brief 文字列を追加する関数
         /// @param text const char *型の文字列
         void append(const char *text);
@@ -122,6 +129,10 @@ namespace dataObject
         /// @return 数値が等しければtrueを出力。
         bool operator==(const double &data) const;
         /// @brief Stringクラスの比較演算子(==)
+        /// @param letter 比較するconst char 型の文字列
+        /// @return 文字列が等しければtrueを出力。
+        bool operator==(const char letter) const;
+        /// @brief Stringクラスの比較演算子(==)
         /// @param data 比較するconst char *型の文字列
         /// @return 文字列が等しければtrueを出力。
         bool operator==(const char *text) const;
@@ -141,6 +152,10 @@ namespace dataObject
         /// @param data 比較するdouble型のデータ
         /// @return 数値が異なればtrueを出力。
         bool operator!=(const double &data) const;
+        /// @brief Stringクラスの比較演算子(!=)
+        /// @param data 比較するconst char 型の文字列
+        /// @return 文字列が異なればtrueを出力。
+        bool operator!=(const char letter) const;
         /// @brief Stringクラスの比較演算子(!=)
         /// @param data 比較するconst char *型の文字列
         /// @return 文字列が異なればtrueを出力。
@@ -166,6 +181,10 @@ namespace dataObject
         /// @return [String] 本クラスの文字列
         String operator=(const double &data);
         /// @brief Stringクラスの代入演算子(=)
+        /// @param data 代入するconst char 型の文字列
+        /// @return [String] 本クラスの文字列
+        String operator=(const char letter);
+        /// @brief Stringクラスの代入演算子(=)
         /// @param data 代入するconst char *型の文字列
         /// @return [String] 本クラスの文字列
         String operator=(const char *str);
@@ -185,6 +204,10 @@ namespace dataObject
         /// @param data 追加するdouble型のデータ
         /// @return [String] 追加された文字列
         String operator+(const double &data) const;
+        /// @brief Stringクラスの代入演算子(+)
+        /// @param data 追加するconst char型の文字列
+        /// @return [String] 追加された文字列
+        String operator+(const char letter) const;
         /// @brief Stringクラスの代入演算子(+)
         /// @param data 追加するconst char *型の文字列
         /// @return [String] 追加された文字列
@@ -206,6 +229,10 @@ namespace dataObject
         /// @return [String] 本クラスの文字列
         String &operator+=(const double &data);
         /// @brief Stringクラスの代入演算子(+=)
+        /// @param data 追加するconst char型の文字列
+        /// @return [String] 本クラスの文字列
+        String &operator+=(const char letter);
+        /// @brief Stringクラスの代入演算子(+=)
         /// @param data 追加するconst char *型の文字列
         /// @return [String] 本クラスの文字列
         String &operator+=(const char *str);
@@ -223,6 +250,10 @@ namespace dataObject
         /// @param length 取得する文字列の長さ
         /// @return [String] 文字列
         String slice(int start, int length) const;
+        /// @brief 文字列を区切り文字列で分割する関数
+        /// @param sep 区切り文字列
+        /// @return [List<String>] 文字列のリスト
+        List<String> split(const char sep);
         /// @brief 文字列を区切り文字列で分割する関数
         /// @param sep 区切り文字列
         /// @return [List<String>] 文字列のリスト
