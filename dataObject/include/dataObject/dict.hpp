@@ -31,7 +31,6 @@ namespace dataObject
     public:
         Dict(){}
         Dict(const Dict<K_T, V_T> &dict);
-        
         /// @brief 要素を取得する関数
         /// @param key キー
         /// @return 値
@@ -43,6 +42,10 @@ namespace dataObject
         /// @param key 削除する要素のキー
         /// @details 存在しないキーを指定した場合動作しない
         void del(const K_T &key);
+        /// @brief キーが存在するか判定
+        /// @param key 検索したいキー
+        /// @return キーが存在する場合はTrue
+        bool exist(const K_T &key);
         /// @brief 辞書を拡張する
         /// @param dict 追加する辞書
         void extend(const Dict<K_T, V_T> &dict);

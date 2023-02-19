@@ -56,12 +56,25 @@ namespace dataObject
     }
 
     template <class K_T, class V_T>
+    bool Dict<K_T, V_T>::exist(const K_T &key)
+    {
+        int find_id = _search(key);
+
+        if (find_id < 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    template <class K_T, class V_T>
     void Dict<K_T, V_T>::extend(const Dict<K_T, V_T> &dict)
     {
         auto key_list = dict.getKeys();
         auto value_list = dict.getValues();
-        for(int i=0;i<key_list.getSize();i++){
-            this->update(key_list.get(i),value_list.get(i));
+        for (int i = 0; i < key_list.getSize(); i++)
+        {
+            this->update(key_list.get(i), value_list.get(i));
         }
     }
 
@@ -69,7 +82,8 @@ namespace dataObject
     int Dict<K_T, V_T>::getData(const K_T &key, V_T &value)
     {
         int find_id = _search(key);
-        if(find_id< 0){
+        if (find_id < 0)
+        {
             return -1;
         }
 
@@ -108,14 +122,16 @@ namespace dataObject
     }
 
     template <class K_T, class V_T>
-    Dict<K_T, V_T> &Dict<K_T, V_T>::operator=(const Dict<K_T, V_T> &dict){
+    Dict<K_T, V_T> &Dict<K_T, V_T>::operator=(const Dict<K_T, V_T> &dict)
+    {
         this->clear();
         this->extend(dict);
         return *this;
     }
 
     template <class K_T, class V_T>
-    Dict<K_T, V_T> &Dict<K_T, V_T>::operator+=(const Dict<K_T, V_T> &dict){
+    Dict<K_T, V_T> &Dict<K_T, V_T>::operator+=(const Dict<K_T, V_T> &dict)
+    {
         this->extend(dict);
         return *this;
     }
