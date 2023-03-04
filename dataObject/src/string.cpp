@@ -438,6 +438,41 @@ String String::pop(int start, int length)
     return ret;
 }
 
+String String::replace(const char *before, const char *after)
+{
+    String before_tmp = before;
+    String after_tmp = after;
+
+    return this->replace(before_tmp, after_tmp);
+}
+String String::replace(const char *before, const String after)
+{
+    String before_tmp = before;
+
+    return this->replace(before_tmp, after);
+}
+String String::replace(const String before, const char *after)
+{
+    String after_tmp = after;
+
+    return this->replace(before, after_tmp);
+}
+String String::replace(const String before, const String after)
+{
+    List<String> buffer = this->split(before);
+    String ret = "";
+
+    for (int i = 0; i < buffer.getSize() - 1; i++)
+    {
+        ret += buffer[i];
+        ret += after;
+    }
+
+    ret += buffer[buffer.getSize() - 1];
+
+    return ret;
+}
+
 String String::slice(int start, int length) const
 {
     // 位置取得

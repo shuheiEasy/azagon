@@ -245,6 +245,26 @@ namespace dataObject
         /// @param length 取得する文字列の長さ
         /// @return [String] 文字列
         String pop(int start, int length);
+        /// @brief 文字列を置換する関数
+        /// @param before 置換される文字列
+        /// @param after 置換する文字列
+        /// @return 置換済みの文字列
+        String replace(const char *before,const char *after);
+        /// @brief 文字列を置換する関数
+        /// @param before 置換される文字列
+        /// @param after 置換する文字列
+        /// @return 置換済みの文字列
+        String replace(const char * before,const String after);
+        /// @brief 文字列を置換する関数
+        /// @param before 置換される文字列
+        /// @param after 置換する文字列
+        /// @return 置換済みの文字列
+        String replace(const String before,const char *after);
+        /// @brief 文字列を置換する関数
+        /// @param before 置換される文字列
+        /// @param after 置換する文字列
+        /// @return 置換済みの文字列
+        String replace(const String before,const String after);
         /// @brief 文字列の一部を取得する関数
         /// @param start 取得する文字列の先頭の文字の位置
         /// @param length 取得する文字列の長さ
