@@ -66,6 +66,9 @@ namespace dataObject
         /// @brief コンストラクタ
         /// @param text String型の文字列
         String(const String &text);
+        /// @brief コンストラクタ
+        /// @param str std::string型の文字列
+        String(const std::string &text);
         /// @brief デコンストラクタ
         ~String();
         /// @brief 文字列を追加する関数

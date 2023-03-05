@@ -63,6 +63,12 @@ String::String(const String &text)
     _setData(text.getChar(), -1);
 }
 
+String::String(const std::string &text)
+{
+    _init();
+    _setData(text.c_str(), -1);
+}
+
 String::~String()
 {
     _free_ptr();
