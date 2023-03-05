@@ -90,21 +90,34 @@ namespace dataObject
     }
 
     template <class K_T, class V_T>
+    const char *DictItem<K_T, V_T>::getLog() const
+    {
+        String ret = "{ ";
+
+        ret += toMemberString(key);
+        ret += ": ";
+        ret += toMemberString(value);
+
+        ret += " }";
+
+        return ret.getChar();
+    }
+
+    template <class K_T, class V_T>
     const char *Dict<K_T, V_T>::getLog() const
     {
         String ret = "{ ";
 
-        for (int i = 0; i < _key_list.getSize(); i++)
+        for (int i = 0; i < _key_and_value_list.getSize(); i++)
         {
             if (i != 0)
             {
                 ret += ", ";
             }
-            K_T key = _key_list.get(i);
-            V_T value = _value_list.get(i);
-            ret += toMemberString(key);
+            DictItem<K_T, V_T> dict_item = _key_and_value_list.get(i);
+            ret += toMemberString(dict_item.key);
             ret += ": ";
-            ret += toMemberString(value);
+            ret += toMemberString(dict_item.value);
         }
 
         ret += " }";
