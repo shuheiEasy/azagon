@@ -23,7 +23,7 @@ namespace fileSystem
     };
 
     /// @brief ファイル状況を表す列挙体
-    /// @details 
+    /// @details
     /// | モード | 状態 |
     /// |--:|:--:|
     /// | UNKNOWNMODE | 状態不明 |
@@ -133,6 +133,9 @@ namespace fileSystem
         /// @brief コンストラクタ
         /// @param path パス
         TextFile(const char *path);
+        /// @brief コンストラクタ
+        /// @param path パス
+        TextFile(dataObject::String &path);
         /// @brief コピーコンストラクタ
         /// @param file ファイル
         TextFile(const File &file);
@@ -145,7 +148,7 @@ namespace fileSystem
         /// @brief ファイル全体を読み込み
         /// @param output 読み込んだテキスト
         /// @return [Int] 読み込み結果
-        /// @details 
+        /// @details
         /// | 読み込み結果の値 | 読み込み状態 |
         /// |--:|:--:|
         /// | 0 | 読み込み成功 |
@@ -158,7 +161,7 @@ namespace fileSystem
         /// @brief 行ごとに読み取り
         /// @param output 読み込んだテキストの各行ごとのリスト
         /// @return [Int] 読み込み結果
-        /// @details 
+        /// @details
         /// | 読み込み結果の値 | 読み込み状態 |
         /// |--:|:--:|
         /// | 0 | 読み込み成功 |
@@ -225,7 +228,7 @@ namespace fileSystem
     };
 
     /// @brief ディレクトリクラス
-    class FileExplorer: public dataObject::DataObject
+    class FileExplorer : public dataObject::DataObject
     {
     private:
         File *_dir;
@@ -238,14 +241,14 @@ namespace fileSystem
         /// @brief コンストラクタ
         /// @param path パス
         FileExplorer(const dataObject::String &path);
-        FileExplorer(const char* path);
+        FileExplorer(const char *path);
         /// @brief デコンストラクタ
         ~FileExplorer();
         /// @brief ディレクトリのリスト
         /// @return List<File> ディレクトリリスト
         dataObject::List<File> getDirList();
         dataObject::List<File> getFileList();
-        dataObject::List<File> getFileList(const char* extension);
+        dataObject::List<File> getFileList(const char *extension);
         /// @brief 指定した拡張子のファイルリストの取得
         /// @param extension 拡張子
         /// @return List<File> ファイルリスト
@@ -256,11 +259,58 @@ namespace fileSystem
         /// @brief 代入演算子
         /// @param path パス
         FileExplorer &operator=(const dataObject::String &path);
-        FileExplorer &operator=(const char* path);
+        FileExplorer &operator=(const char *path);
         /// @brief ディレクトリへのパス
         /// @param path パス
         void setPath(const dataObject::String &path);
-        void setPath(const char* path);
+        void setPath(const char *path);
+    };
+
+    /// @brief Jsonファイルクラス
+    class JsonFile : public dataObject::DataObject
+    {
+    private:
+        TextFile *textFile;
+        dataObject::Dict<dataObject::String, dataObject::Any> json_dict_data;
+
+        dataObject::Any _converter(dataObject::String text);
+        int _getList(dataObject::String text, dataObject::List<dataObject::Any> &data);
+        int _getObject(dataObject::String text, dataObject::Dict<dataObject::String, dataObject::Any> &data);
+        int _getString(dataObject::String text, dataObject::String &data);
+
+        dataObject::String _writeAny(dataObject::Any value, int tab);
+        dataObject::String _writeList(dataObject::List<dataObject::Any> data, int tab);
+        dataObject::String _writeObject(dataObject::Dict<dataObject::String, dataObject::Any> data, int tab);
+
+    public:
+        /// @brief コンストラクタ
+        JsonFile();
+        /// @brief コンストラクタ
+        /// @param file_path ファイルのパス
+        JsonFile(dataObject::String &file_path);
+        JsonFile(const char *file_path);
+        /// @brief デコンストラクタ
+        ~JsonFile();
+
+        const char *getType() const;
+        int getSize() const;
+        const char *getLog() const;
+
+        /// @brief Jsonデータの辞書型を取得する関数
+        /// @return Jsonデータの辞書型
+        dataObject::Dict<dataObject::String, dataObject::Any> &getDict();
+
+        /// @brief ファイルの再読み込み
+        /// @return 読込結果
+        /// @details 読込成功時に0を返す
+        int read();
+
+        /// @brief Jsonファイルのパスを設定する
+        /// @param file_path ファイルのパス
+        void setPath(dataObject::String &file_path);
+        void setPath(const char *file_path);
+
+        void write();
     };
 
     /////////////////////////////////////////////
