@@ -46,6 +46,9 @@ namespace dataObject
     template <class K_T, class V_T>
     class Dict;
 
+    /// @brief 辞書型クラスのイテレータクラス
+    /// @tparam K_T キーの型
+    /// @tparam V_T 値の型
     template <class K_T, class V_T>
     class DictIterator : public std::iterator<std::forward_iterator_tag, DictItem<K_T, V_T>>
     {
@@ -59,16 +62,28 @@ namespace dataObject
         // 参照先のID
         int dict_list_id = 0;
 
+        /// @brief コンストラクタ
+        /// @param dict_ 辞書のポインター
+        /// @param list_id 要素番号
         DictIterator(Dict<K_T, V_T> *dict_, int list_id);
 
     public:
+        /// @brief コピーコンストラクタ
+        /// @param other コピー元のイテレータ
         DictIterator(const DictIterator<K_T, V_T> &other);
 
+        /// @brief 間接参照演算子
+        /// @return [DictItem型] キーと値のペア
         DictItem<K_T, V_T> &operator*();
 
+        /// @brief インクリメント演算子
+        /// @return 参照先をずらす
         DictIterator<K_T, V_T> &operator++();
         DictIterator<K_T, V_T> operator++(int);
 
+        /// @brief 比較演算子
+        /// @param other 比較元のイテレータ
+        /// @return [bool] 比較元のデータと同じならtrue
         bool operator==(const DictIterator<K_T, V_T> &other);
         bool operator!=(const DictIterator<K_T, V_T> &other);
     };
@@ -99,7 +114,8 @@ namespace dataObject
         /// @return 値
         /// @details 存在しないキーが存在しない場合はキーを登録する
         V_T &at(const K_T key);
-
+        /// @brief 先頭のイテレータを取得
+        /// @return [DictIterator<K_T, V_T>] 先頭のイテレータ
         Dict<K_T, V_T>::iterator begin();
         /// @brief 辞書を削除
         void clear();
@@ -111,7 +127,8 @@ namespace dataObject
         /// @param key 検索したいキー
         /// @return キーが存在する場合はTrue
         bool exist(const K_T &key);
-
+        /// @brief 末尾のイテレータを取得
+        /// @return [DictIterator<K_T, V_T>] 末尾のイテレータ
         Dict<K_T, V_T>::iterator end();
         /// @brief 辞書を拡張する
         /// @param dict 追加する辞書

@@ -310,6 +310,7 @@ namespace fileSystem
         void setPath(dataObject::String &file_path);
         void setPath(const char *file_path);
 
+        /// @brief ファイルへ書き込み
         void write();
     };
 
