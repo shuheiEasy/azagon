@@ -110,6 +110,11 @@ void String::clear()
     _init();
 }
 
+char *String::c_str() const
+{
+    return this->getChar();
+}
+
 void String::del(int start)
 {
     _del(start, 1);
@@ -118,6 +123,129 @@ void String::del(int start)
 void String::del(int start, int length)
 {
     _del(start, length);
+}
+
+bool String::exist(const char moji){
+    return this->exist(String(moji));
+}
+
+bool String::exist(const char *text){
+    return this->exist(String(text));
+}
+
+bool String::exist(const String &text){
+    if(this->find(text)>=0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+int String::find(const char moji, bool reverse_flag)
+{
+    return this->find(String(moji), reverse_flag);
+}
+
+int String::find(const char *text, bool reverse_flag)
+{
+    return this->find(String(text), reverse_flag);
+}
+
+int String::find(const String &text, bool reverse_flag)
+{
+    int search_id;
+    int ret = -1;
+
+    if (reverse_flag)
+    {
+        search_id = text.getSize() - 1;
+    }
+    else
+    {
+        search_id = 0;
+    }
+
+    for (int i = 0; i < this->getSize(); i++)
+    {
+        // 検索する文字位置取得
+        int text_pos;
+
+        if (reverse_flag)
+        {
+            text_pos = this->getSize() - i - 1;
+        }
+        else
+        {
+            text_pos = i;
+        }
+
+        // 文字取得
+        String moji = slice(text_pos, 1);
+
+        // 文字判定
+        if (moji == text[search_id])
+        {
+            if (reverse_flag)
+            {
+                if (search_id == text.getSize() - 1)
+                {
+                    ret = text_pos;
+                }
+            }
+            else
+            {
+                if (search_id == 0)
+                {
+                    ret = text_pos;
+                }
+            }
+
+            if (reverse_flag)
+            {
+                search_id--;
+            }
+            else
+            {
+                search_id++;
+            }
+        }
+        else
+        {
+            if (reverse_flag)
+            {
+                search_id = text.getSize() - 1;
+            }
+            else
+            {
+                search_id = 0;
+            }
+            ret = -1;
+        }
+
+        // 条件に適合したらループ脱出
+        if (reverse_flag)
+        {
+            if (search_id < 0)
+            {
+                break;
+            }
+        }
+        else
+        {
+            if (search_id >= text.getSize())
+            {
+                break;
+            }
+        }
+    }
+
+    // 文字位置取得
+    if (reverse_flag)
+    {
+        ret -= text.getSize() - 1;
+    }
+
+    return ret;
 }
 
 char *String::getChar() const
@@ -521,7 +649,6 @@ List<String> String::split(const char sep)
 {
     return split(String(sep));
 }
-
 
 List<String> String::split(const char *sep)
 {
