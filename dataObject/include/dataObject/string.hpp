@@ -129,7 +129,7 @@ namespace dataObject
         /// @return 存在した場合Trueを返す
         bool exist(const String &text);
         /// @brief 文字列中における特定の文字列の位置を取得する関数
-        /// @param text 検索する文字列
+        /// @param moji 検索する文字列
         /// @param reverse_flag 末尾から検索する場合trueを指定する
         /// @return 文字列中における特定の文字列の位置(存在しない場合-1を返す)
         int find(const char moji, bool reverse_flag = false);
