@@ -94,6 +94,18 @@ namespace dataObject
         void append(const String text);
         /// @brief 文字列をすべて消す関数
         void clear();
+        /// @brief 文字列中における特定の文字の個数を取得する関数
+        /// @param moji 検索する文字
+        /// @return 文字列中における特定の文字の個数
+        int count(const char moji);
+        /// @brief 文字列中における特定の文字列の個数を取得する関数
+        /// @param text 検索する文字列
+        /// @return 文字列中における特定の文字列の個数
+        int count(const char *text);
+        /// @brief 文字列中における特定の文字列の個数を取得する関数
+        /// @param text 検索する文字列
+        /// @return 文字列中における特定の文字列の個数
+        int count(const String &text);
         /// @brief char *型へ変換する関数
         /// @return [char *型] 文字列
         char *c_str() const;
@@ -131,6 +143,21 @@ namespace dataObject
         /// @param reverse_flag 末尾から検索する場合trueを指定する
         /// @return 文字列中における特定の文字列の位置(存在しない場合-1を返す)
         int find(const String &text, bool reverse_flag = false);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param moji 検索する文字
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置のリスト(存在しない場合空のリストを返す)
+        List<int> findall(const char moji);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param text 検索する文字列
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置のリスト(存在しない場合空のリストを返す)
+        List<int> findall(const char *text);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param text 検索する文字列
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置のリスト(存在しない場合空のリストを返す)
+        List<int> findall(const String &text);
         /// @brief char *型へ変換する関数
         /// @return char *型
         char *getChar() const;
@@ -149,6 +176,11 @@ namespace dataObject
         bool isdigit() const;
         /// @brief 文字列が数字か判定する関数
         bool isnumeric() const;
+        /*!
+        @brief 英文字を小文字にする関数
+        @return 変換後の文字列
+        */
+        String lower();
         /// @brief Stringクラスの比較演算子(==)
         /// @param data 比較するint型のデータ
         /// @return 数値が等しければtrueを出力。
@@ -324,6 +356,11 @@ namespace dataObject
         /// @brief double型へ変換
         /// @return [double] 数値
         double toDouble();
+        /*!
+        @brief 英文字を大文字にする関数
+        @return 変換後の文字列
+        */
+        String upper();
     };
 
     // String型変換

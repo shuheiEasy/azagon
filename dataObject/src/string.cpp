@@ -110,6 +110,21 @@ void String::clear()
     _init();
 }
 
+int String::count(const char moji)
+{
+    return findall(moji).getSize();
+}
+
+int String::count(const char *text)
+{
+    return findall(text).getSize();
+}
+
+int String::count(const String &text)
+{
+    return findall(text).getSize();
+}
+
 char *String::c_str() const
 {
     return this->getChar();
@@ -125,18 +140,24 @@ void String::del(int start, int length)
     _del(start, length);
 }
 
-bool String::exist(const char moji){
+bool String::exist(const char moji)
+{
     return this->exist(String(moji));
 }
 
-bool String::exist(const char *text){
+bool String::exist(const char *text)
+{
     return this->exist(String(text));
 }
 
-bool String::exist(const String &text){
-    if(this->find(text)>=0){
+bool String::exist(const String &text)
+{
+    if (this->find(text) >= 0)
+    {
         return true;
-    }else{
+    }
+    else
+    {
         return false;
     }
 }
@@ -248,6 +269,48 @@ int String::find(const String &text, bool reverse_flag)
     return ret;
 }
 
+List<int> String::findall(const char moji)
+{
+    return findall(String(moji));
+}
+
+List<int> String::findall(const char *text)
+{
+    return findall(String(text));
+}
+
+List<int> String::findall(const String &text)
+{
+    // return
+    List<int> ret;
+
+    // 検索
+    int start = 0;
+    int length = this->getSize();
+    while (true)
+    {
+        // 文字列の切り出し
+        String buffer = this->slice(start, length);
+
+        // 検索
+        int search_pos = buffer.find(text);
+
+        // なかった場合ループを脱出
+        if (search_pos < 0)
+        {
+            break;
+        }
+
+        // リストに追加
+        ret.append(start + search_pos);
+
+        // 文字列の切り出し位置
+        start += search_pos + text.getSize();
+    }
+
+    return ret;
+}
+
 char *String::getChar() const
 {
     // 初期化
@@ -335,6 +398,31 @@ bool String::isnumeric() const
     {
         return false;
     }
+}
+
+String String::lower()
+{
+    String ret;
+    for (int pos = 0; pos < _length; pos++)
+    {
+        if (_data[pos].size == 1)
+        {
+            if ('A' <= _data[pos].data[0] && _data[pos].data[0] <= 'Z')
+            {
+                ret += String(char(_data[pos].data[0] + 32));
+            }
+            else
+            {
+                ret += String(_data[pos].data);
+            }
+        }
+        else
+        {
+            ret += String(_data[pos].data);
+        }
+    }
+
+    return ret;
 }
 
 bool String::operator==(const int &data) const
@@ -908,6 +996,31 @@ double String::toDouble()
     {
         return ret;
     }
+}
+
+String String::upper()
+{
+    String ret;
+    for (int pos = 0; pos < _length; pos++)
+    {
+        if (_data[pos].size == 1)
+        {
+            if ('a' <= _data[pos].data[0] && _data[pos].data[0] <= 'z')
+            {
+                ret += String(char(_data[pos].data[0] - 32));
+            }
+            else
+            {
+                ret += String(_data[pos].data);
+            }
+        }
+        else
+        {
+            ret += String(_data[pos].data);
+        }
+    }
+
+    return ret;
 }
 
 ///////////////////////////////////////////////////////////
