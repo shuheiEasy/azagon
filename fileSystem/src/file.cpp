@@ -12,7 +12,7 @@ File::File(const char *path)
 {
     _init(String(path));
 }
-File::File(String &path)
+File::File(const String &path)
 {
     _init(path);
 }
@@ -70,7 +70,7 @@ void File::close()
 }
 
 // ファイルの存在確認
-Bool File::exists()
+Bool File::exists() const
 {
     Bool ret = false;
     switch (_filetype)
@@ -84,7 +84,7 @@ Bool File::exists()
 }
 
 // 拡張子取得
-String File::getExtension()  const
+String File::getExtension() const
 {
     return _extension;
 }
@@ -114,7 +114,7 @@ String File::getPath() const
 }
 
 // ディレクトリ判定
-Bool File::isdir()
+Bool File::isdir() const
 {
     Bool ret = false;
     if (_filetype == FT_Dir)
@@ -125,7 +125,7 @@ Bool File::isdir()
 }
 
 // ファイル判定
-Bool File::isfile()
+Bool File::isfile() const
 {
     Bool ret = false;
     if (_filetype == FT_File)
@@ -251,6 +251,48 @@ Bool File::open(const char *mode)
     return ret;
 }
 
+Bool File::remove(const bool force_mode)
+{
+    Bool ret = false;
+    if (_filetype == FT_File)
+    {
+        if (unlink(_path.getChar()) == 0)
+        {
+            ret = true;
+        }
+    }
+    else if (_filetype == FT_Dir)
+    {
+        Bool remove_flag = false;
+        if (force_mode)
+        {
+            auto file_list = getFileList(_path);
+            for (int i = 0; i < file_list.getSize(); i++)
+            {
+                remove_flag = file_list[i].remove(force_mode);
+                if (!remove_flag)
+                {
+                    break;
+                }
+            }
+        }
+        else
+        {
+            remove_flag = true;
+        }
+
+        if (remove_flag)
+        {
+            if (rmdir(_path.getChar()) == 0)
+            {
+                ret = true;
+            }
+        }
+    }
+
+    return ret;
+}
+
 Bool File::touch()
 {
     return mkfile();
@@ -283,7 +325,7 @@ void File::_init(String path)
     struct stat stat_buffer;
     if (stat(_path.getChar(), &stat_buffer) == 0)
     {
-        //フォルダ・ファイル判定
+        // フォルダ・ファイル判定
         if (S_ISREG(stat_buffer.st_mode))
         {
             _filetype = FT_File;

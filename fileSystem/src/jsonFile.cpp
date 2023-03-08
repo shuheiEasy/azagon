@@ -14,7 +14,7 @@ JsonFile::JsonFile(const char *file_path)
     setPath(file_path);
 }
 
-JsonFile::JsonFile(String &file_path)
+JsonFile::JsonFile(const String &file_path)
 {
     textFile = nullptr;
     setPath(file_path);
@@ -54,7 +54,7 @@ int JsonFile::read()
     return ret;
 }
 
-void JsonFile::setPath(String &file_path)
+void JsonFile::setPath(const String &file_path)
 {
     if (textFile != nullptr)
     {
