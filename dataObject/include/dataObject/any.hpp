@@ -63,37 +63,48 @@ namespace dataObject
         {
             _data_ptr.reset(new Data<T>(data));
         }
+        Any(const bool &data)
+        {
+            _data_ptr.reset(new Data<Bool>(data));
+        }
         /// @brief コンストラクタ
         /// @param data 代入するintデータ
         Any(const int &data)
-        {            
+        {
             _data_ptr.reset(new Data<Int>(data));
         }
         /// @brief コンストラクタ
         /// @param data 代入するintデータ
         Any(const float &data)
-        {            
+        {
             _data_ptr.reset(new Data<Float>(data));
         }
         /// @brief コンストラクタ
         /// @param data 代入するintデータ
         Any(const double &data)
-        {            
+        {
             _data_ptr.reset(new Data<Double>(data));
         }
         /// @brief コンストラクタ
-        /// @param data 代入するintデータ
+        /// @param data 代入するcharデータ
+        Any(const char data)
+        {
+            _data_ptr.reset(new Data<String>(data));
+        }
+        /// @brief コンストラクタ
+        /// @param data 代入するchar*データ
         Any(const char *data)
-        {            
+        {
             _data_ptr.reset(new Data<String>(data));
         }
         /// @brief コピーコンストラクタ
         Any(const Any &data)
         {
-            _data_ptr=data._data_ptr->copy();
+            _data_ptr = data._data_ptr->copy();
         }
         /// @brief デコンストラクタ
         ~Any() {}
+
         /// @brief 値を取得する関数
         /// @tparam T 取得するデータの型
         /// @return 取得する値
@@ -101,16 +112,22 @@ namespace dataObject
         T *getData()
         {
             Data<T> *ptr = dynamic_cast<Data<T> *>(_data_ptr.get());
-            if(ptr==NULL){
+            if (ptr == NULL)
+            {
                 printf("ERROR: Any型のgetData関数の型を間違えています\n");
                 exit(1);
             }
             return ptr->_data;
         }
+
         const char *getLog() const { return _data_ptr->getLog(); }
         int getSize() const { return _data_ptr->getSize(); }
         const char *getType() const { return _data_ptr->getType(); }
 
+        /// @brief 代入演算子
+        /// @tparam T Any型に代入されている型
+        /// @param data 代入するデータ
+        /// @return 代入後のデータ
         template <class T, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr>
         Any operator=(const T &data)
         {
@@ -118,9 +135,12 @@ namespace dataObject
             return *this;
         }
 
+        /// @brief 代入演算子
+        /// @param data 代入するデータ
+        /// @return 代入後のデータ
         Any operator=(const Any &data)
         {
-            _data_ptr=data._data_ptr->copy();
+            _data_ptr = data._data_ptr->copy();
             return *this;
         }
     };
