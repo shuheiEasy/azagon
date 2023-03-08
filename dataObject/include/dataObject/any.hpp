@@ -63,6 +63,8 @@ namespace dataObject
         {
             _data_ptr.reset(new Data<T>(data));
         }
+        /// @brief コンストラクタ
+        /// @param data 代入するboolデータ
         Any(const bool &data)
         {
             _data_ptr.reset(new Data<Bool>(data));
@@ -74,13 +76,13 @@ namespace dataObject
             _data_ptr.reset(new Data<Int>(data));
         }
         /// @brief コンストラクタ
-        /// @param data 代入するintデータ
+        /// @param data 代入するfloatデータ
         Any(const float &data)
         {
             _data_ptr.reset(new Data<Float>(data));
         }
         /// @brief コンストラクタ
-        /// @param data 代入するintデータ
+        /// @param data 代入するdoubleデータ
         Any(const double &data)
         {
             _data_ptr.reset(new Data<Double>(data));
