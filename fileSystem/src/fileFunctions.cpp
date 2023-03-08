@@ -95,6 +95,12 @@ String fileSystem::getAbsolutePath(String &path)
     return ret;
 }
 
+dataObject::String fileSystem::getCurrentDir(const int size){
+    char buf[size];
+    getcwd(buf, size);
+    return String(buf);
+}
+
 dataObject::List<File> fileSystem::getDirList(const char *path) { return getDirList(File(path)); }
 
 dataObject::List<File> fileSystem::getDirList(const dataObject::String &path) { return getDirList(File(path)); }

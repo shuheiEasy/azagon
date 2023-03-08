@@ -327,6 +327,10 @@ namespace fileSystem
     /// @param path 相対パス・絶対パスを表す文字列
     /// @return [String] 絶対パスを表す文字列
     dataObject::String getAbsolutePath(dataObject::String &path);
+    /// @brief カレントディレクトリ取得
+    /// @param size バッファのサイズ
+    /// @return カレントディレクトリのパス
+    dataObject::String getCurrentDir(const int size=1024);
     /// @brief ディレクトリ内のディレクトリリスト
     /// @param path ディレクトリのパス
     /// @return List<File> ディレクトリリスト
