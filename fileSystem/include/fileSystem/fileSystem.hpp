@@ -13,7 +13,13 @@
 namespace fileSystem
 {
     /// @brief ファイル種類を表す列挙体
-    /// @details 「FT_Unknown」は不明なファイル、「FT_NoExist」は存在していないファイル、「FT_File」はファイル、「FT_Dir」はディレクトリ
+    /// @details
+    /// | 種類 | 凡例 |
+    /// |--:|:--:|
+    /// | FT_Unknown | 不明なファイル |
+    /// | FT_NoExist | 存在していないファイル |
+    /// | FT_File | ファイル |
+    /// | FT_Dir | ディレクトリ |
     enum FileType
     {
         FT_Unknown = -100,
