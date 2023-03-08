@@ -65,7 +65,7 @@ namespace fileSystem
         File(const char *path);
         /// @brief コンストラクタ
         /// @param path パス
-        File(dataObject::String &path);
+        File(const dataObject::String &path);
         /// @brief コピーコンストラクタ
         /// @param file ファイル
         File(const File &file);
@@ -81,7 +81,7 @@ namespace fileSystem
         void close();
         /// @brief ファイル存在判定
         /// @return [Bool] ファイルが存在したときTrueを出力
-        dataObject::Bool exists();
+        dataObject::Bool exists() const;
         /// @brief 拡張子取得
         /// @return [String] 拡張子
         dataObject::String getExtension() const;
@@ -99,10 +99,10 @@ namespace fileSystem
         dataObject::String getPath() const;
         /// @brief ディレクトリ判定
         /// @return [Bool] ディレクトリである場合Trueを出力
-        dataObject::Bool isdir();
+        dataObject::Bool isdir() const;
         /// @brief ファイル判定
         /// @return [Bool] ファイルである場合Trueを出力
-        dataObject::Bool isfile();
+        dataObject::Bool isfile() const;
         /// @brief ディレクトリ作成
         /// @return [Bool] ディレクトリ作成が成功した場合Trueを出力
         dataObject::Bool mkdir();
@@ -117,6 +117,10 @@ namespace fileSystem
         /// @param mode ファイルを開くモード
         /// @return [Bool] ファイルが正しく開けた場合Trueを出力
         dataObject::Bool open(FileMode mode);
+        /// @brief ファイル削除
+        /// @param force_mode フォルダの中身があるときも削除する場合はtrueを指定
+        /// @return 正しく削除できた場合にtrueを返す
+        dataObject::Bool remove(const bool force_mode = false);
         /// @brief ファイル作成
         /// @return [Bool] ファイル作成が成功した場合Trueを出力
         dataObject::Bool touch();
@@ -228,6 +232,7 @@ namespace fileSystem
     };
 
     /// @brief ディレクトリクラス
+    /// @attention 廃止予定
     class FileExplorer : public dataObject::DataObject
     {
     private:
@@ -287,7 +292,7 @@ namespace fileSystem
         JsonFile();
         /// @brief コンストラクタ
         /// @param file_path ファイルのパス
-        JsonFile(dataObject::String &file_path);
+        JsonFile(const dataObject::String &file_path);
         JsonFile(const char *file_path);
         /// @brief デコンストラクタ
         ~JsonFile();
@@ -307,7 +312,7 @@ namespace fileSystem
 
         /// @brief Jsonファイルのパスを設定する
         /// @param file_path ファイルのパス
-        void setPath(dataObject::String &file_path);
+        void setPath(const dataObject::String &file_path);
         void setPath(const char *file_path);
 
         /// @brief ファイルへ書き込み
@@ -322,6 +327,60 @@ namespace fileSystem
     /// @param path 相対パス・絶対パスを表す文字列
     /// @return [String] 絶対パスを表す文字列
     dataObject::String getAbsolutePath(dataObject::String &path);
+    /// @brief ディレクトリ内のディレクトリリスト
+    /// @param path ディレクトリのパス
+    /// @return List<File> ディレクトリリスト
+    dataObject::List<File> getDirList(const char *path);
+    /// @brief ディレクトリ内のディレクトリリスト
+    /// @param path ディレクトリのパス
+    /// @return List<File> ディレクトリリスト
+    dataObject::List<File> getDirList(const dataObject::String &path);
+    /// @brief ディレクトリ内のディレクトリリスト
+    /// @param dir ディレクトリ
+    /// @return List<File> ディレクトリリスト
+    dataObject::List<File> getDirList(const File &dir);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param path ディレクトリのパス
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const char *path);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param path ディレクトリのパス
+    /// @param extension 拡張子
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const char *path, const char *extension);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param path ディレクトリのパス
+    /// @param extension 拡張子
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const char *path, const dataObject::String &extension);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param path ディレクトリのパス
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const dataObject::String &path);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param path ディレクトリのパス
+    /// @param extension 拡張子
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const dataObject::String &path, const char *extension);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param path ディレクトリのパス
+    /// @param extension 拡張子
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const dataObject::String &path, const dataObject::String &extension);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param dir ディレクトリ
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const File &dir);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param dir ディレクトリ
+    /// @param extension 拡張子
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const File &dir, const char *extension);
+    /// @brief ディレクトリ内のファイルリスト
+    /// @param dir ディレクトリ
+    /// @param extension 拡張子
+    /// @return List<File> ファイルリスト
+    dataObject::List<File> getFileList(const File &dir, const dataObject::String &extension);
     /// @brief パスを区切り文字で分割したリスト
     /// @param path パスを表す文字列
     /// @return [List<String>] パスのリスト
