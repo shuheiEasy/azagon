@@ -395,5 +395,14 @@ namespace fileSystem
     /// @param path パスを表す文字列
     /// @return [List<String>] パスのリスト
     dataObject::List<dataObject::String> getPathList(dataObject::String &path);
+    /*!
+    @brief カレントディレクトリ移動
+    @param path バッファのサイズ
+    @return 移動結果
+        @li 0 成功
+        @li -1 ディレクトリが存在しません
+        @li -2 失敗
+    */
+    dataObject::Int moveCurrentDir(const dataObject::String &path);
 }
 #endif

@@ -95,7 +95,8 @@ String fileSystem::getAbsolutePath(String &path)
     return ret;
 }
 
-dataObject::String fileSystem::getCurrentDir(const int size){
+dataObject::String fileSystem::getCurrentDir(const int size)
+{
     char buf[size];
     getcwd(buf, size);
     return String(buf);
@@ -126,12 +127,12 @@ dataObject::List<File> fileSystem::getDirList(const File &dir)
 }
 
 dataObject::List<File> fileSystem::getFileList(const char *path) { return getFileList(File(path)); }
-dataObject::List<File> fileSystem::getFileList(const char *path, const char *extension){ return getFileList(File(path), String(extension)); }
-dataObject::List<File> fileSystem::getFileList(const char *path, const dataObject::String &extension){ return getFileList(File(path),extension); }
+dataObject::List<File> fileSystem::getFileList(const char *path, const char *extension) { return getFileList(File(path), String(extension)); }
+dataObject::List<File> fileSystem::getFileList(const char *path, const dataObject::String &extension) { return getFileList(File(path), extension); }
 
 dataObject::List<File> fileSystem::getFileList(const dataObject::String &path) { return getFileList(File(path)); }
-dataObject::List<File> fileSystem::getFileList(const dataObject::String &path, const char *extension){ return getFileList(File(path), String(extension)); }
-dataObject::List<File> fileSystem::getFileList(const dataObject::String &path, const dataObject::String &extension){ return getFileList(File(path),extension); }
+dataObject::List<File> fileSystem::getFileList(const dataObject::String &path, const char *extension) { return getFileList(File(path), String(extension)); }
+dataObject::List<File> fileSystem::getFileList(const dataObject::String &path, const dataObject::String &extension) { return getFileList(File(path), extension); }
 
 dataObject::List<File> fileSystem::getFileList(const File &dir)
 {
@@ -172,7 +173,8 @@ dataObject::List<File> fileSystem::getFileList(const File &dir)
     return ret;
 }
 
-dataObject::List<File> fileSystem::getFileList(const File &dir, const char *extension){
+dataObject::List<File> fileSystem::getFileList(const File &dir, const char *extension)
+{
     return getFileList(dir, String(extension));
 }
 
@@ -217,6 +219,32 @@ List<String> fileSystem::getPathList(String &path)
 
     // パス分割
     ret = path.split(path_separator);
+
+    return ret;
+}
+
+dataObject::Int fileSystem::moveCurrentDir(const dataObject::String &path)
+{
+    Int ret = -2;
+
+    // ディレクトリ判定
+    File dir(path);
+    if (!dir.isdir())
+    {
+        ret = -1;
+    }
+    else
+    {
+        // カレントディレクトリ移動
+        if (chdir(dir.getPath().c_str()) == 0)
+        {
+            ret = 0;
+        }
+        else
+        {
+            ret = -2;
+        }
+    }
 
     return ret;
 }
