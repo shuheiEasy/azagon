@@ -15,6 +15,14 @@
 
 namespace dataObject
 {
+    ///////////////////////////////////////////////////////
+    //
+    //  Dictクラス
+    //
+    ///////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////
+    //  public
+    ///////////////////////////////////////////////////////
     template <class K_T, class V_T>
     Dict<K_T, V_T>::Dict(const Dict<K_T, V_T> &dict)
     {
@@ -29,18 +37,22 @@ namespace dataObject
 
         if (find_id < 0)
         {
-            _key_list.append(key);
-            _value_list.append(V_T());
+            _key_and_value_list.append(DictItem<K_T, V_T>(key, V_T()));
         }
 
-        return _value_list[find_id];
+        return _key_and_value_list[find_id].value;
+    }
+
+    template <class K_T, class V_T>
+    typename Dict<K_T, V_T>::iterator Dict<K_T, V_T>::begin()
+    {
+        return DictIterator<K_T, V_T>(this, 0);
     }
 
     template <class K_T, class V_T>
     void Dict<K_T, V_T>::clear()
     {
-        _key_list.clear();
-        _value_list.clear();
+        _key_and_value_list.clear();
     }
 
     template <class K_T, class V_T>
@@ -50,9 +62,26 @@ namespace dataObject
 
         if (del_id > -1)
         {
-            _key_list.del(del_id);
-            _value_list.del(del_id);
+            _key_and_value_list.del(del_id);
         }
+    }
+
+    template <class K_T, class V_T>
+    bool Dict<K_T, V_T>::exist(const K_T &key)
+    {
+        int find_id = _search(key);
+
+        if (find_id < 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    template <class K_T, class V_T>
+    typename Dict<K_T, V_T>::iterator Dict<K_T, V_T>::end()
+    {
+        return DictIterator<K_T, V_T>(this, this->getSize());
     }
 
     template <class K_T, class V_T>
@@ -60,8 +89,9 @@ namespace dataObject
     {
         auto key_list = dict.getKeys();
         auto value_list = dict.getValues();
-        for(int i=0;i<key_list.getSize();i++){
-            this->update(key_list.get(i),value_list.get(i));
+        for (int i = 0; i < key_list.getSize(); i++)
+        {
+            this->update(key_list.get(i), value_list.get(i));
         }
     }
 
@@ -69,24 +99,30 @@ namespace dataObject
     int Dict<K_T, V_T>::getData(const K_T &key, V_T &value)
     {
         int find_id = _search(key);
-        if(find_id< 0){
+        if (find_id < 0)
+        {
             return -1;
         }
 
-        value = _value_list[find_id];
+        value = _key_and_value_list[find_id].value;
         return 0;
     }
 
     template <class K_T, class V_T>
     List<K_T> Dict<K_T, V_T>::getKeys() const
     {
-        return _key_list;
+        List<K_T> ret;
+        for (int i = 0; i < _key_and_value_list.getSize(); i++)
+        {
+            ret.append(_key_and_value_list.get(i).key);
+        }
+        return ret;
     }
 
     template <class K_T, class V_T>
     int Dict<K_T, V_T>::getSize() const
     {
-        return _key_list.getSize();
+        return _key_and_value_list.getSize();
     }
 
     template <class K_T, class V_T>
@@ -98,7 +134,12 @@ namespace dataObject
     template <class K_T, class V_T>
     List<V_T> Dict<K_T, V_T>::getValues() const
     {
-        return _value_list;
+        List<V_T> ret;
+        for (int i = 0; i < _key_and_value_list.getSize(); i++)
+        {
+            ret.append(_key_and_value_list.get(i).value);
+        }
+        return ret;
     }
 
     template <class K_T, class V_T>
@@ -108,14 +149,16 @@ namespace dataObject
     }
 
     template <class K_T, class V_T>
-    Dict<K_T, V_T> &Dict<K_T, V_T>::operator=(const Dict<K_T, V_T> &dict){
+    Dict<K_T, V_T> &Dict<K_T, V_T>::operator=(const Dict<K_T, V_T> &dict)
+    {
         this->clear();
         this->extend(dict);
         return *this;
     }
 
     template <class K_T, class V_T>
-    Dict<K_T, V_T> &Dict<K_T, V_T>::operator+=(const Dict<K_T, V_T> &dict){
+    Dict<K_T, V_T> &Dict<K_T, V_T>::operator+=(const Dict<K_T, V_T> &dict)
+    {
         this->extend(dict);
         return *this;
     }
@@ -128,33 +171,112 @@ namespace dataObject
 
         if (add_id < 0)
         {
-            _key_list.append(key);
-            _value_list.append(value);
+            _key_and_value_list.append(DictItem<K_T, V_T>(key, value));
         }
         else
         {
-            _value_list[add_id] = value;
+            _key_and_value_list[add_id].value = value;
         }
     }
 
     ///////////////////////////////////////////////////////
-    //
     //  private
-    //
     ///////////////////////////////////////////////////////
     template <class K_T, class V_T>
     int Dict<K_T, V_T>::_search(const K_T &key)
     {
         int find_id = -1;
-        for (int i = 0; i < _key_list.getSize(); i++)
+        for (int i = 0; i < _key_and_value_list.getSize(); i++)
         {
-            if (_key_list[i] == key)
+            if (_key_and_value_list[i].key == key)
             {
                 find_id = i;
                 break;
             }
         }
         return find_id;
+    }
+
+    ///////////////////////////////////////////////////////
+    //
+    //  DictIteratorクラス
+    //
+    ///////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////
+    //  public
+    ///////////////////////////////////////////////////////
+    template <class K_T, class V_T>
+    DictIterator<K_T, V_T>::DictIterator(const DictIterator<K_T, V_T> &other)
+    {
+        this->dict = other.dict;
+        this->dict_list_id = other.dict_list_id;
+    }
+
+    template <class K_T, class V_T>
+    DictItem<K_T, V_T> &DictIterator<K_T, V_T>::operator*()
+    {
+        if (dict_list_id < dict->getSize())
+        {
+            return *(dict->_key_and_value_list.at(dict_list_id));
+        }
+        return *(dict->_key_and_value_list.at(0));
+    }
+
+    template <class K_T, class V_T>
+    DictIterator<K_T, V_T> &DictIterator<K_T, V_T>::operator++()
+    {
+        dict_list_id++;
+
+        if (dict_list_id > dict->getSize())
+        {
+            dict_list_id = dict->getSize();
+        }
+
+        return *this;
+    }
+
+    template <class K_T, class V_T>
+    DictIterator<K_T, V_T> DictIterator<K_T, V_T>::operator++(int)
+    {
+        DictIterator<K_T, V_T> iter = *this;
+
+        dict_list_id++;
+
+        if (dict_list_id > dict->getSize())
+        {
+            dict_list_id = dict->getSize();
+        }
+
+        return iter;
+    }
+
+    template <class K_T, class V_T>
+    bool DictIterator<K_T, V_T>::operator==(const DictIterator<K_T, V_T> &other)
+    {
+        if (dict_list_id == other.dict_list_id)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    template <class K_T, class V_T>
+    bool DictIterator<K_T, V_T>::operator!=(const DictIterator<K_T, V_T> &other)
+    {
+        return !(*this == other);
+    }
+
+    ///////////////////////////////////////////////////////
+    //  private
+    ///////////////////////////////////////////////////////
+    template <class K_T, class V_T>
+    DictIterator<K_T, V_T>::DictIterator(Dict<K_T, V_T> *dict_, int list_id)
+    {
+        dict = dict_;
+        dict_list_id = list_id;
     }
 }
 

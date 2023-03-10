@@ -1,3 +1,4 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="node1" href="$classdata_object_1_1_type.html" title="型クラスの種類を判定するクラス" alt="" coords="5,5,199,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,104,39"/>
+<area shape="rect" id="node2" href="$classdata_object_1_1_dict_iterator.html" title="辞書型クラスのイテレータクラス" alt="" coords="152,5,327,47"/>
 </map>

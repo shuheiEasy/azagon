@@ -16,19 +16,20 @@
 #include <stdlib.h>
 #include <locale.h>
 
+#include <string>
 #include <type_traits>
 
 /**
  * @brief 文字コードを指定
  * @note 将来、動的に変更できるようにする予定
- * 
+ *
  */
 #define LANGUAGECODE "ja_JP.UTF-8"
 
 /**
  * @brief ビルドしたOSを判定
  * @details "Linux"、"Windows"を判定。エラー時に"OTHER"となる。
- * 
+ *
  */
 #ifdef __linux__
 #define OSTYPE "LINUX"
@@ -75,8 +76,8 @@ namespace dataObject
         virtual const char *getLog() const { return "None"; }
         /**
          * @brief デストラクタ
-        */
-        virtual ~DataObject(){}
+         */
+        virtual ~DataObject() {}
     };
 
     /// @brief データ情報がない場合を定義するクラス
@@ -95,7 +96,7 @@ namespace dataObject
     /**
      * @brief 型クラスの種類を分類する列挙型
      * @attention 廃止予定
-     * 
+     *
      */
     enum ClassType
     {
@@ -108,7 +109,7 @@ namespace dataObject
     /**
      * @brief 型クラスの種類を判定するクラス
      * @attention 廃止予定
-     * 
+     *
      */
     template <class TYPE>
     class Type
@@ -124,12 +125,12 @@ namespace dataObject
     public:
         /**
          * @brief 型クラスの判定結果
-         * 
+         *
          */
         ClassType class_id;
         /**
          * @brief コンストラクトすることで型判定を実行
-         * 
+         *
          */
         Type() { check(_inner_class); }
     };

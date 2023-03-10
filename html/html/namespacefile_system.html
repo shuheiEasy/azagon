@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">azagon
-   &#160;<span id="projectnumber">0.5.1</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">c++用共通ライブラリ</div>
   </td>
@@ -106,6 +106,9 @@ $(document).ready(function(){initNavTree('namespacefile_system.html',''); initRe
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfile_system_1_1_file_explorer.html">FileExplorer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリクラス  <a href="classfile_system_1_1_file_explorer.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfile_system_1_1_json_file.html">JsonFile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jsonファイルクラス  <a href="classfile_system_1_1_json_file.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 列挙型</h2></td></tr>
@@ -133,9 +136,51 @@ $(document).ready(function(){initNavTree('namespacefile_system.html',''); initRe
 <tr class="memitem:a17e4991310644cbc04654b316e89200a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">dataObject::String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a17e4991310644cbc04654b316e89200a">getAbsolutePath</a> (<a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;path)</td></tr>
 <tr class="memdesc:a17e4991310644cbc04654b316e89200a"><td class="mdescLeft">&#160;</td><td class="mdescRight">絶対パスを取得する関数  <a href="namespacefile_system.html#a17e4991310644cbc04654b316e89200a">[詳解]</a><br /></td></tr>
 <tr class="separator:a17e4991310644cbc04654b316e89200a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7297009cc5310e983fe7ea4ecc40bf17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">dataObject::String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a7297009cc5310e983fe7ea4ecc40bf17">getCurrentDir</a> (const int size=1024)</td></tr>
+<tr class="memdesc:a7297009cc5310e983fe7ea4ecc40bf17"><td class="mdescLeft">&#160;</td><td class="mdescRight">カレントディレクトリ取得  <a href="namespacefile_system.html#a7297009cc5310e983fe7ea4ecc40bf17">[詳解]</a><br /></td></tr>
+<tr class="separator:a7297009cc5310e983fe7ea4ecc40bf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e7b3a8651eba63da0a9f65c6b56d468"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a9e7b3a8651eba63da0a9f65c6b56d468">getDirList</a> (const char *path)</td></tr>
+<tr class="memdesc:a9e7b3a8651eba63da0a9f65c6b56d468"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のディレクトリリスト  <a href="namespacefile_system.html#a9e7b3a8651eba63da0a9f65c6b56d468">[詳解]</a><br /></td></tr>
+<tr class="separator:a9e7b3a8651eba63da0a9f65c6b56d468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6e2620eecba0bb80eda24bc4b6ff8dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#af6e2620eecba0bb80eda24bc4b6ff8dc">getDirList</a> (const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;path)</td></tr>
+<tr class="memdesc:af6e2620eecba0bb80eda24bc4b6ff8dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のディレクトリリスト  <a href="namespacefile_system.html#af6e2620eecba0bb80eda24bc4b6ff8dc">[詳解]</a><br /></td></tr>
+<tr class="separator:af6e2620eecba0bb80eda24bc4b6ff8dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a975d51a56c80e41449bdc05cfdc00ada"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a975d51a56c80e41449bdc05cfdc00ada">getDirList</a> (const <a class="el" href="classfile_system_1_1_file.html">File</a> &amp;dir)</td></tr>
+<tr class="memdesc:a975d51a56c80e41449bdc05cfdc00ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のディレクトリリスト  <a href="namespacefile_system.html#a975d51a56c80e41449bdc05cfdc00ada">[詳解]</a><br /></td></tr>
+<tr class="separator:a975d51a56c80e41449bdc05cfdc00ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ea83aace97b2b9314b7190890fc748"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#ab0ea83aace97b2b9314b7190890fc748">getFileList</a> (const char *path)</td></tr>
+<tr class="memdesc:ab0ea83aace97b2b9314b7190890fc748"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#ab0ea83aace97b2b9314b7190890fc748">[詳解]</a><br /></td></tr>
+<tr class="separator:ab0ea83aace97b2b9314b7190890fc748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae78899f8631722ae003d36606f445973"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#ae78899f8631722ae003d36606f445973">getFileList</a> (const char *path, const char *extension)</td></tr>
+<tr class="memdesc:ae78899f8631722ae003d36606f445973"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#ae78899f8631722ae003d36606f445973">[詳解]</a><br /></td></tr>
+<tr class="separator:ae78899f8631722ae003d36606f445973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a865955bf3d9bbac2853f79884fb8acbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a865955bf3d9bbac2853f79884fb8acbc">getFileList</a> (const char *path, const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;extension)</td></tr>
+<tr class="memdesc:a865955bf3d9bbac2853f79884fb8acbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#a865955bf3d9bbac2853f79884fb8acbc">[詳解]</a><br /></td></tr>
+<tr class="separator:a865955bf3d9bbac2853f79884fb8acbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b415d29d07747dd7086101778b86c14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a2b415d29d07747dd7086101778b86c14">getFileList</a> (const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;path)</td></tr>
+<tr class="memdesc:a2b415d29d07747dd7086101778b86c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#a2b415d29d07747dd7086101778b86c14">[詳解]</a><br /></td></tr>
+<tr class="separator:a2b415d29d07747dd7086101778b86c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af72c690c1d3c4ed29d1dfcacb84ad010"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#af72c690c1d3c4ed29d1dfcacb84ad010">getFileList</a> (const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;path, const char *extension)</td></tr>
+<tr class="memdesc:af72c690c1d3c4ed29d1dfcacb84ad010"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#af72c690c1d3c4ed29d1dfcacb84ad010">[詳解]</a><br /></td></tr>
+<tr class="separator:af72c690c1d3c4ed29d1dfcacb84ad010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4acf75595acb57eb9afa6e053d18492"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#af4acf75595acb57eb9afa6e053d18492">getFileList</a> (const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;path, const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;extension)</td></tr>
+<tr class="memdesc:af4acf75595acb57eb9afa6e053d18492"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#af4acf75595acb57eb9afa6e053d18492">[詳解]</a><br /></td></tr>
+<tr class="separator:af4acf75595acb57eb9afa6e053d18492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80cf62628dd174ea7d7acfd5ebb5fbda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a80cf62628dd174ea7d7acfd5ebb5fbda">getFileList</a> (const <a class="el" href="classfile_system_1_1_file.html">File</a> &amp;dir)</td></tr>
+<tr class="memdesc:a80cf62628dd174ea7d7acfd5ebb5fbda"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#a80cf62628dd174ea7d7acfd5ebb5fbda">[詳解]</a><br /></td></tr>
+<tr class="separator:a80cf62628dd174ea7d7acfd5ebb5fbda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a260cf86c11cba271e112359e2c398306"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a260cf86c11cba271e112359e2c398306">getFileList</a> (const <a class="el" href="classfile_system_1_1_file.html">File</a> &amp;dir, const char *extension)</td></tr>
+<tr class="memdesc:a260cf86c11cba271e112359e2c398306"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#a260cf86c11cba271e112359e2c398306">[詳解]</a><br /></td></tr>
+<tr class="separator:a260cf86c11cba271e112359e2c398306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb14b192eaedb489588b2e5af8f074d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#abb14b192eaedb489588b2e5af8f074d6">getFileList</a> (const <a class="el" href="classfile_system_1_1_file.html">File</a> &amp;dir, const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;extension)</td></tr>
+<tr class="memdesc:abb14b192eaedb489588b2e5af8f074d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ内のファイルリスト  <a href="namespacefile_system.html#abb14b192eaedb489588b2e5af8f074d6">[詳解]</a><br /></td></tr>
+<tr class="separator:abb14b192eaedb489588b2e5af8f074d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a7a35b56d99b582c6f9b65ce540e12f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#a4a7a35b56d99b582c6f9b65ce540e12f">getPathList</a> (<a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;path)</td></tr>
 <tr class="memdesc:a4a7a35b56d99b582c6f9b65ce540e12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">パスを区切り文字で分割したリスト  <a href="namespacefile_system.html#a4a7a35b56d99b582c6f9b65ce540e12f">[詳解]</a><br /></td></tr>
 <tr class="separator:a4a7a35b56d99b582c6f9b65ce540e12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1bfd50a55f1a02b9656139edfbaefa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefile_system.html#afe1bfd50a55f1a02b9656139edfbaefa">moveCurrentDir</a> (const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;path)</td></tr>
+<tr class="memdesc:afe1bfd50a55f1a02b9656139edfbaefa"><td class="mdescLeft">&#160;</td><td class="mdescRight">カレントディレクトリ移動  <a href="namespacefile_system.html#afe1bfd50a55f1a02b9656139edfbaefa">[詳解]</a><br /></td></tr>
+<tr class="separator:afe1bfd50a55f1a02b9656139edfbaefa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ファイル操作ライブラリの空間 </p>
@@ -168,7 +213,7 @@ $(document).ready(function(){initNavTree('namespacefile_system.html',''); initRe
 <td class="markdownTableBodyRight">APPENDMODE   </td><td class="markdownTableBodyCenter">ファイルを追記モードで開いた状態   </td></tr>
 </table>
 
-<p class="definition"> <a class="el" href="file_system_8hpp_source.html">fileSystem.hpp</a> の <a class="el" href="file_system_8hpp_source.html#l00034">34</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="file_system_8hpp_source.html">fileSystem.hpp</a> の <a class="el" href="file_system_8hpp_source.html#l00040">40</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -185,9 +230,20 @@ $(document).ready(function(){initNavTree('namespacefile_system.html',''); initRe
 </div><div class="memdoc">
 
 <p>ファイル種類を表す列挙体 </p>
-<p>「FT_Unknown」は不明なファイル、「FT_NoExist」は存在していないファイル、「FT_File」はファイル、「FT_Dir」はディレクトリ </p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">種類   </th><th class="markdownTableHeadCenter">凡例    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">FT_Unknown   </td><td class="markdownTableBodyCenter">不明なファイル    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">FT_NoExist   </td><td class="markdownTableBodyCenter">存在していないファイル    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">FT_File   </td><td class="markdownTableBodyCenter">ファイル    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">FT_Dir   </td><td class="markdownTableBodyCenter">ディレクトリ   </td></tr>
+</table>
 
-<p class="definition"> <a class="el" href="file_system_8hpp_source.html">fileSystem.hpp</a> の <a class="el" href="file_system_8hpp_source.html#l00017">17</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="file_system_8hpp_source.html">fileSystem.hpp</a> の <a class="el" href="file_system_8hpp_source.html#l00023">23</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -221,6 +277,449 @@ $(document).ready(function(){initNavTree('namespacefile_system.html',''); initRe
 
 </div>
 </div>
+<a id="a7297009cc5310e983fe7ea4ecc40bf17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7297009cc5310e983fe7ea4ecc40bf17">&#9670;&nbsp;</a></span>getCurrentDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> fileSystem::getCurrentDir </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>size</em> = <code>1024</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カレントディレクトリ取得 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>バッファのサイズ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>カレントディレクトリのパス </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00098">98</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a9e7b3a8651eba63da0a9f65c6b56d468"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e7b3a8651eba63da0a9f65c6b56d468">&#9670;&nbsp;</a></span>getDirList() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getDirList </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のディレクトリリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>ディレクトリのパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ディレクトリリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00105">105</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="af6e2620eecba0bb80eda24bc4b6ff8dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6e2620eecba0bb80eda24bc4b6ff8dc">&#9670;&nbsp;</a></span>getDirList() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getDirList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のディレクトリリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>ディレクトリのパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ディレクトリリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00107">107</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a975d51a56c80e41449bdc05cfdc00ada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a975d51a56c80e41449bdc05cfdc00ada">&#9670;&nbsp;</a></span>getDirList() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getDirList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classfile_system_1_1_file.html">File</a> &amp;&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のディレクトリリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>ディレクトリ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ディレクトリリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00109">109</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab0ea83aace97b2b9314b7190890fc748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ea83aace97b2b9314b7190890fc748">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[1/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>ディレクトリのパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00129">129</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae78899f8631722ae003d36606f445973"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae78899f8631722ae003d36606f445973">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[2/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>ディレクトリのパス </td></tr>
+    <tr><td class="paramname">extension</td><td>拡張子 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00130">130</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a865955bf3d9bbac2853f79884fb8acbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a865955bf3d9bbac2853f79884fb8acbc">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[3/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>ディレクトリのパス </td></tr>
+    <tr><td class="paramname">extension</td><td>拡張子 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00131">131</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a2b415d29d07747dd7086101778b86c14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b415d29d07747dd7086101778b86c14">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[4/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>ディレクトリのパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00133">133</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="af72c690c1d3c4ed29d1dfcacb84ad010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af72c690c1d3c4ed29d1dfcacb84ad010">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[5/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>ディレクトリのパス </td></tr>
+    <tr><td class="paramname">extension</td><td>拡張子 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00134">134</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="af4acf75595acb57eb9afa6e053d18492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4acf75595acb57eb9afa6e053d18492">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>ディレクトリのパス </td></tr>
+    <tr><td class="paramname">extension</td><td>拡張子 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00135">135</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a80cf62628dd174ea7d7acfd5ebb5fbda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80cf62628dd174ea7d7acfd5ebb5fbda">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[7/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classfile_system_1_1_file.html">File</a> &amp;&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>ディレクトリ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00137">137</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a260cf86c11cba271e112359e2c398306"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a260cf86c11cba271e112359e2c398306">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[8/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classfile_system_1_1_file.html">File</a> &amp;&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>ディレクトリ </td></tr>
+    <tr><td class="paramname">extension</td><td>拡張子 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00176">176</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="abb14b192eaedb489588b2e5af8f074d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb14b192eaedb489588b2e5af8f074d6">&#9670;&nbsp;</a></span>getFileList() <span class="overload">[9/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">dataObject::List</a>&lt; <a class="el" href="classfile_system_1_1_file.html">File</a> &gt; fileSystem::getFileList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classfile_system_1_1_file.html">File</a> &amp;&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ内のファイルリスト </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>ディレクトリ </td></tr>
+    <tr><td class="paramname">extension</td><td>拡張子 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>List&lt;File&gt; ファイルリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00181">181</a> 行目に定義があります。</p>
+
+</div>
+</div>
 <a id="a4a7a35b56d99b582c6f9b65ce540e12f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a7a35b56d99b582c6f9b65ce540e12f">&#9670;&nbsp;</a></span>getPathList()</h2>
 
@@ -246,7 +745,41 @@ $(document).ready(function(){initNavTree('namespacefile_system.html',''); initRe
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>[List&lt;String&gt;] パスのリスト </dd></dl>
 
-<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00098">98</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00201">201</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="afe1bfd50a55f1a02b9656139edfbaefa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1bfd50a55f1a02b9656139edfbaefa">&#9670;&nbsp;</a></span>moveCurrentDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a> fileSystem::moveCurrentDir </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カレントディレクトリ移動 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>バッファのサイズ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>移動結果 <ul>
+<li>0 成功 </li>
+<li>-1 ディレクトリが存在しません </li>
+<li>-2 失敗 </li>
+</ul>
+</dd></dl>
+
+<p class="definition"> <a class="el" href="file_functions_8cpp_source.html">fileFunctions.cpp</a> の <a class="el" href="file_functions_8cpp_source.html#l00226">226</a> 行目に定義があります。</p>
 
 </div>
 </div>

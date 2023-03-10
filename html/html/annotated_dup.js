@@ -7,7 +7,9 @@ var annotated_dup =
       [ "DataObject", "classdata_object_1_1_data_object.html", "classdata_object_1_1_data_object" ],
       [ "NoneType", "classdata_object_1_1_none_type.html", "classdata_object_1_1_none_type" ],
       [ "Type", "classdata_object_1_1_type.html", "classdata_object_1_1_type" ],
+      [ "DictItem", "classdata_object_1_1_dict_item.html", "classdata_object_1_1_dict_item" ],
       [ "Dict", "classdata_object_1_1_dict.html", "classdata_object_1_1_dict" ],
+      [ "DictIterator", "classdata_object_1_1_dict_iterator.html", "classdata_object_1_1_dict_iterator" ],
       [ "Double", "classdata_object_1_1_double.html", "classdata_object_1_1_double" ],
       [ "Float", "classdata_object_1_1_float.html", "classdata_object_1_1_float" ],
       [ "Int", "classdata_object_1_1_int.html", "classdata_object_1_1_int" ],
@@ -17,7 +19,8 @@ var annotated_dup =
     [ "fileSystem", "namespacefile_system.html", [
       [ "File", "classfile_system_1_1_file.html", "classfile_system_1_1_file" ],
       [ "TextFile", "classfile_system_1_1_text_file.html", "classfile_system_1_1_text_file" ],
-      [ "FileExplorer", "classfile_system_1_1_file_explorer.html", "classfile_system_1_1_file_explorer" ]
+      [ "FileExplorer", "classfile_system_1_1_file_explorer.html", "classfile_system_1_1_file_explorer" ],
+      [ "JsonFile", "classfile_system_1_1_json_file.html", "classfile_system_1_1_json_file" ]
     ] ],
     [ "formatter", "namespaceformatter.html", [
       [ "Formatter", "classformatter_1_1_formatter.html", "classformatter_1_1_formatter" ]

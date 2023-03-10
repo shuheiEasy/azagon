@@ -45,6 +45,12 @@ String::String(const double &data)
     _fromDouble(data, -1);
 }
 
+String::String(const char letter)
+{
+    _init();
+    _fromChar(letter, -1);
+}
+
 String::String(const char *text)
 {
     _init();
@@ -55,6 +61,12 @@ String::String(const String &text)
 {
     _init();
     _setData(text.getChar(), -1);
+}
+
+String::String(const std::string &text)
+{
+    _init();
+    _setData(text.c_str(), -1);
 }
 
 String::~String()
@@ -77,6 +89,11 @@ void String::append(const double &data)
     _fromDouble(data, -1);
 }
 
+void String::append(const char letter)
+{
+    _fromChar(letter, -1);
+}
+
 void String::append(const char *text)
 {
     _setData(text, -1);
@@ -93,6 +110,26 @@ void String::clear()
     _init();
 }
 
+int String::count(const char moji)
+{
+    return findall(moji).getSize();
+}
+
+int String::count(const char *text)
+{
+    return findall(text).getSize();
+}
+
+int String::count(const String &text)
+{
+    return findall(text).getSize();
+}
+
+char *String::c_str() const
+{
+    return this->getChar();
+}
+
 void String::del(int start)
 {
     _del(start, 1);
@@ -101,6 +138,177 @@ void String::del(int start)
 void String::del(int start, int length)
 {
     _del(start, length);
+}
+
+bool String::exist(const char moji)
+{
+    return this->exist(String(moji));
+}
+
+bool String::exist(const char *text)
+{
+    return this->exist(String(text));
+}
+
+bool String::exist(const String &text)
+{
+    if (this->find(text) >= 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+int String::find(const char moji, bool reverse_flag)
+{
+    return this->find(String(moji), reverse_flag);
+}
+
+int String::find(const char *text, bool reverse_flag)
+{
+    return this->find(String(text), reverse_flag);
+}
+
+int String::find(const String &text, bool reverse_flag)
+{
+    int search_id;
+    int ret = -1;
+
+    if (reverse_flag)
+    {
+        search_id = text.getSize() - 1;
+    }
+    else
+    {
+        search_id = 0;
+    }
+
+    for (int i = 0; i < this->getSize(); i++)
+    {
+        // 検索する文字位置取得
+        int text_pos;
+
+        if (reverse_flag)
+        {
+            text_pos = this->getSize() - i - 1;
+        }
+        else
+        {
+            text_pos = i;
+        }
+
+        // 文字取得
+        String moji = slice(text_pos, 1);
+
+        // 文字判定
+        if (moji == text[search_id])
+        {
+            if (reverse_flag)
+            {
+                if (search_id == text.getSize() - 1)
+                {
+                    ret = text_pos;
+                }
+            }
+            else
+            {
+                if (search_id == 0)
+                {
+                    ret = text_pos;
+                }
+            }
+
+            if (reverse_flag)
+            {
+                search_id--;
+            }
+            else
+            {
+                search_id++;
+            }
+        }
+        else
+        {
+            if (reverse_flag)
+            {
+                search_id = text.getSize() - 1;
+            }
+            else
+            {
+                search_id = 0;
+            }
+            ret = -1;
+        }
+
+        // 条件に適合したらループ脱出
+        if (reverse_flag)
+        {
+            if (search_id < 0)
+            {
+                break;
+            }
+        }
+        else
+        {
+            if (search_id >= text.getSize())
+            {
+                break;
+            }
+        }
+    }
+
+    // 文字位置取得
+    if (reverse_flag)
+    {
+        ret -= text.getSize() - 1;
+    }
+
+    return ret;
+}
+
+List<int> String::findall(const char moji)
+{
+    return findall(String(moji));
+}
+
+List<int> String::findall(const char *text)
+{
+    return findall(String(text));
+}
+
+List<int> String::findall(const String &text)
+{
+    // return
+    List<int> ret;
+
+    // 検索
+    int start = 0;
+    int length = this->getSize();
+    while (true)
+    {
+        // 文字列の切り出し
+        String buffer = this->slice(start, length);
+
+        // 検索
+        int search_pos = buffer.find(text);
+
+        // なかった場合ループを脱出
+        if (search_pos < 0)
+        {
+            break;
+        }
+
+        // リストに追加
+        ret.append(start + search_pos);
+
+        // 文字列の切り出し位置
+        start += search_pos + text.getSize();
+    }
+
+    return ret;
 }
 
 char *String::getChar() const
@@ -192,6 +400,31 @@ bool String::isnumeric() const
     }
 }
 
+String String::lower()
+{
+    String ret;
+    for (int pos = 0; pos < _length; pos++)
+    {
+        if (_data[pos].size == 1)
+        {
+            if ('A' <= _data[pos].data[0] && _data[pos].data[0] <= 'Z')
+            {
+                ret += String(char(_data[pos].data[0] + 32));
+            }
+            else
+            {
+                ret += String(_data[pos].data);
+            }
+        }
+        else
+        {
+            ret += String(_data[pos].data);
+        }
+    }
+
+    return ret;
+}
+
 bool String::operator==(const int &data) const
 {
     String tmp(data);
@@ -231,6 +464,16 @@ bool String::operator==(const double &data) const
     }
 }
 
+bool String::operator==(const char letter) const
+{
+    String tmp(letter);
+    if (tmp == *this)
+    {
+        return true;
+    }
+    return false;
+}
+
 bool String::operator==(const char *text) const
 {
     if (strcmp(getChar(), text) == 0)
@@ -267,6 +510,11 @@ bool String::operator!=(const double &data) const
     return !operator==(data);
 }
 
+bool String::operator!=(const char letter) const
+{
+    return !operator==(letter);
+}
+
 bool String::operator!=(const char *text) const
 {
     return !operator==(text);
@@ -300,6 +548,14 @@ String String::operator=(const double &data)
 {
     clear();
     _fromDouble(data, -1);
+    return *this;
+}
+
+String String::operator=(const char letter)
+{
+    clear();
+    _fromChar(letter, -1);
+
     return *this;
 }
 
@@ -340,6 +596,13 @@ String String::operator+(const double &data) const
     return ret;
 }
 
+String String::operator+(const char letter) const
+{
+    String ret = *this;
+    ret.append(letter);
+    return ret;
+}
+
 String String::operator+(const char *str) const
 {
     String ret = *this;
@@ -372,6 +635,12 @@ String &String::operator+=(const double &data)
     return *this;
 }
 
+String &String::operator+=(const char letter)
+{
+    _fromChar(letter, -1);
+    return *this;
+}
+
 String &String::operator+=(const char *str)
 {
     _setData(str, -1);
@@ -388,6 +657,41 @@ String String::pop(int start, int length)
 {
     String ret = slice(start, length);
     _del(start, length);
+    return ret;
+}
+
+String String::replace(const char *before, const char *after)
+{
+    String before_tmp = before;
+    String after_tmp = after;
+
+    return this->replace(before_tmp, after_tmp);
+}
+String String::replace(const char *before, const String after)
+{
+    String before_tmp = before;
+
+    return this->replace(before_tmp, after);
+}
+String String::replace(const String before, const char *after)
+{
+    String after_tmp = after;
+
+    return this->replace(before, after_tmp);
+}
+String String::replace(const String before, const String after)
+{
+    List<String> buffer = this->split(before);
+    String ret = "";
+
+    for (int i = 0; i < buffer.getSize() - 1; i++)
+    {
+        ret += buffer[i];
+        ret += after;
+    }
+
+    ret += buffer[buffer.getSize() - 1];
+
     return ret;
 }
 
@@ -427,6 +731,11 @@ String String::slice(int start, int length) const
     }
 
     return ret;
+}
+
+List<String> String::split(const char sep)
+{
+    return split(String(sep));
 }
 
 List<String> String::split(const char *sep)
@@ -689,6 +998,31 @@ double String::toDouble()
     }
 }
 
+String String::upper()
+{
+    String ret;
+    for (int pos = 0; pos < _length; pos++)
+    {
+        if (_data[pos].size == 1)
+        {
+            if ('a' <= _data[pos].data[0] && _data[pos].data[0] <= 'z')
+            {
+                ret += String(char(_data[pos].data[0] - 32));
+            }
+            else
+            {
+                ret += String(_data[pos].data);
+            }
+        }
+        else
+        {
+            ret += String(_data[pos].data);
+        }
+    }
+
+    return ret;
+}
+
 ///////////////////////////////////////////////////////////
 //
 // private
@@ -713,10 +1047,10 @@ void String::_converter(Moji *&ret, const char *text, int &size)
         {
             ret[size].data[i] = text[pos + i];
         }
-        //　容量
+        // 　容量
         ret[size].size = len;
 
-        //後始末
+        // 後始末
         pos += len;
         size++;
     }
@@ -862,7 +1196,7 @@ int String::_del(int start, int length)
         return -1;
     }
 
-    //データ移動
+    // データ移動
     int pos = 0;
     for (int i = end_pos; i < _memory_unit * _MEMORY_SIZE; i++)
     {
@@ -876,7 +1210,7 @@ int String::_del(int start, int length)
         pos++;
     }
 
-    //文字数削除
+    // 文字数削除
     _length -= end_pos - start_pos;
 
     return 0;
@@ -897,7 +1231,7 @@ void String::_init()
     // 記憶領域確保
     _malloc(_data, _memory_unit * _MEMORY_SIZE);
 
-    //文字コード設定
+    // 文字コード設定
     setlocale(LC_CTYPE, LANGUAGECODE);
 }
 
@@ -921,6 +1255,12 @@ void String::_free_ptr()
         }
         _memory_unit = 0;
     }
+}
+
+void String::_fromChar(const char letter, const int start)
+{
+    char text[] = {letter, '\0'};
+    _setData(text, start);
 }
 
 void String::_fromInt(const int data, const int start)

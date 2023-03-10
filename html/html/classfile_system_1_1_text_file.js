@@ -2,6 +2,7 @@ var classfile_system_1_1_text_file =
 [
     [ "TextFile", "classfile_system_1_1_text_file.html#ad2d429d0e838d57d0cfc67f515827266", null ],
     [ "TextFile", "classfile_system_1_1_text_file.html#a377010f70ad4889d8f2af5674d6d7bd9", null ],
+    [ "TextFile", "classfile_system_1_1_text_file.html#aae52328a0ba313c8c7d2f413f9a9caa9", null ],
     [ "TextFile", "classfile_system_1_1_text_file.html#a7662ca344f4215579e11b7447a8b51b0", null ],
     [ "~TextFile", "classfile_system_1_1_text_file.html#abb8ce39394fd4750aeea1af871b8204f", null ],
     [ "getType", "classfile_system_1_1_text_file.html#a37422de26dfd51f42d3552fe4e81e47c", null ],

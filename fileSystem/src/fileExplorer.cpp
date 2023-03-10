@@ -17,7 +17,7 @@ FileExplorer::FileExplorer(const String &path)
 }
 /// @brief コンストラクタ
 /// @param path パス
-FileExplorer::FileExplorer(const char* path)
+FileExplorer::FileExplorer(const char *path)
 {
     _init();
     _dir = new File(path);
@@ -36,14 +36,17 @@ FileExplorer::~FileExplorer()
     }
 }
 
-List<File> FileExplorer::getDirList(){
+List<File> FileExplorer::getDirList()
+{
     List<File> ret;
 
     // ポインタに実体があるとき
     if (_file_list != NULL)
     {
-        for(int i=0;i<_file_list->getSize();i++){
-            if(_file_list->get(i).isdir()){
+        for (int i = 0; i < _file_list->getSize(); i++)
+        {
+            if (_file_list->get(i).isdir())
+            {
                 ret.append(_file_list->get(i));
             }
         }
@@ -70,19 +73,22 @@ List<File> FileExplorer::getFileList()
 /// @brief 指定した拡張子のファイルリストの取得
 /// @param extension 拡張子
 /// @return List<File> ファイルリスト
-List<File> FileExplorer::getFileList(const char* extension){
+List<File> FileExplorer::getFileList(const char *extension)
+{
     return getFileList(String(extension));
 }
 
 List<File> FileExplorer::getFileList(const dataObject::String extension)
 {
     List<File> ret;
-    
+
     // ポインタに実体がないとき
     if (_file_list != NULL)
     {
-        for(int i=0;i<_file_list->getSize();i++){
-            if(_file_list->get(i).getExtension()==extension){
+        for (int i = 0; i < _file_list->getSize(); i++)
+        {
+            if (_file_list->get(i).getExtension() == extension)
+            {
                 ret.append(_file_list->get(i));
             }
         }
@@ -114,21 +120,27 @@ int FileExplorer::getSize() const
     }
 }
 
-FileExplorer &FileExplorer::operator=(const String &path){
+FileExplorer &FileExplorer::operator=(const String &path)
+{
     setPath(path);
     return *this;
 }
 /// @brief 代入演算子
 /// @param path パス
-FileExplorer &FileExplorer::operator=(const char* path){
+FileExplorer &FileExplorer::operator=(const char *path)
+{
     setPath(path);
     return *this;
 }
-void FileExplorer::setPath(const String &path){
+void FileExplorer::setPath(const String &path)
+{
     // ディレクトリの取得
-    if(_dir==NULL){
+    if (_dir == NULL)
+    {
         _dir = new File(path.getChar());
-    }else{
+    }
+    else
+    {
         *_dir = File(path.getChar());
     }
 
@@ -136,11 +148,15 @@ void FileExplorer::setPath(const String &path){
 }
 /// @brief ディレクトリへのパス
 /// @param path パス
-void FileExplorer::setPath(const char* path){
+void FileExplorer::setPath(const char *path)
+{
     // ディレクトリの取得
-    if(_dir==NULL){
+    if (_dir == NULL)
+    {
         _dir = new File(path);
-    }else{
+    }
+    else
+    {
         *_dir = File(path);
     }
 
@@ -157,6 +173,8 @@ void FileExplorer::_init()
 {
     _dir = NULL;
     _file_list = NULL;
+
+    printf("廃止予定のクラスです\n");
 }
 
 int FileExplorer::_searchDir()

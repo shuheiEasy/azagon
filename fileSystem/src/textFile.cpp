@@ -7,6 +7,8 @@ TextFile::TextFile() : File() {}
 
 TextFile::TextFile(const char *path) : File(path) {}
 
+TextFile::TextFile(String &path):File(path) {}
+
 TextFile::TextFile(const File &file)
 {
     _filetype = file.getFileType();

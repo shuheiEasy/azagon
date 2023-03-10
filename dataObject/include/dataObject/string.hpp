@@ -28,6 +28,7 @@ namespace dataObject
         int _del(int start, int length);
         void _init();
         void _free_ptr();
+        void _fromChar(const char letter, const int start);
         void _fromInt(const int data, const int start);
         void _fromFloat(const float data, const int start);
         void _fromDouble(const double data, const int start);
@@ -57,11 +58,17 @@ namespace dataObject
         /// @details 数値を文字列に変換してデータを格納する
         String(const double &data);
         /// @brief コンストラクタ
+        /// @param letter const char 型の文字列
+        String(const char letter);
+        /// @brief コンストラクタ
         /// @param text const char *型の文字列
         String(const char *text);
         /// @brief コンストラクタ
         /// @param text String型の文字列
         String(const String &text);
+        /// @brief コンストラクタ
+        /// @param str std::string型の文字列
+        String(const std::string &text);
         /// @brief デコンストラクタ
         ~String();
         /// @brief 文字列を追加する関数
@@ -78,12 +85,30 @@ namespace dataObject
         void append(const double &data);
         /// @brief 文字列を追加する関数
         /// @param text const char *型の文字列
+        void append(const char letter);
+        /// @brief 文字列を追加する関数
+        /// @param text const char *型の文字列
         void append(const char *text);
         /// @brief 文字列を追加する関数
         /// @param text String型の文字列
         void append(const String text);
         /// @brief 文字列をすべて消す関数
         void clear();
+        /// @brief 文字列中における特定の文字の個数を取得する関数
+        /// @param moji 検索する文字
+        /// @return 文字列中における特定の文字の個数
+        int count(const char moji);
+        /// @brief 文字列中における特定の文字列の個数を取得する関数
+        /// @param text 検索する文字列
+        /// @return 文字列中における特定の文字列の個数
+        int count(const char *text);
+        /// @brief 文字列中における特定の文字列の個数を取得する関数
+        /// @param text 検索する文字列
+        /// @return 文字列中における特定の文字列の個数
+        int count(const String &text);
+        /// @brief char *型へ変換する関数
+        /// @return [char *型] 文字列
+        char *c_str() const;
         /// @brief 文字を消す関数
         /// @param start 消したい文字の位置
         void del(int start);
@@ -91,6 +116,48 @@ namespace dataObject
         /// @param start 消したい文字列の先頭の文字の位置
         /// @param length 消したい文字列の長さ
         void del(int start, int length);
+        /// @brief 文字列中における特定の文字列が存在するか判定する関数
+        /// @param moji 検索する文字列
+        /// @return 存在した場合Trueを返す
+        bool exist(const char moji);
+        /// @brief 文字列中における特定の文字列が存在するか判定する関数
+        /// @param text 検索する文字列
+        /// @return 存在した場合Trueを返す
+        bool exist(const char *text);
+        /// @brief 文字列中における特定の文字列が存在するか判定する関数
+        /// @param text 検索する文字列
+        /// @return 存在した場合Trueを返す
+        bool exist(const String &text);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param moji 検索する文字列
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置(存在しない場合-1を返す)
+        int find(const char moji, bool reverse_flag = false);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param text 検索する文字列
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置(存在しない場合-1を返す)
+        int find(const char *text, bool reverse_flag = false);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param text 検索する文字列
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置(存在しない場合-1を返す)
+        int find(const String &text, bool reverse_flag = false);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param moji 検索する文字
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置のリスト(存在しない場合空のリストを返す)
+        List<int> findall(const char moji);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param text 検索する文字列
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置のリスト(存在しない場合空のリストを返す)
+        List<int> findall(const char *text);
+        /// @brief 文字列中における特定の文字列の位置を取得する関数
+        /// @param text 検索する文字列
+        /// @param reverse_flag 末尾から検索する場合trueを指定する
+        /// @return 文字列中における特定の文字列の位置のリスト(存在しない場合空のリストを返す)
+        List<int> findall(const String &text);
         /// @brief char *型へ変換する関数
         /// @return char *型
         char *getChar() const;
@@ -109,6 +176,11 @@ namespace dataObject
         bool isdigit() const;
         /// @brief 文字列が数字か判定する関数
         bool isnumeric() const;
+        /*!
+        @brief 英文字を小文字にする関数
+        @return 変換後の文字列
+        */
+        String lower();
         /// @brief Stringクラスの比較演算子(==)
         /// @param data 比較するint型のデータ
         /// @return 数値が等しければtrueを出力。
@@ -121,6 +193,10 @@ namespace dataObject
         /// @param data 比較するdouble型のデータ
         /// @return 数値が等しければtrueを出力。
         bool operator==(const double &data) const;
+        /// @brief Stringクラスの比較演算子(==)
+        /// @param letter 比較するconst char 型の文字列
+        /// @return 文字列が等しければtrueを出力。
+        bool operator==(const char letter) const;
         /// @brief Stringクラスの比較演算子(==)
         /// @param data 比較するconst char *型の文字列
         /// @return 文字列が等しければtrueを出力。
@@ -141,6 +217,10 @@ namespace dataObject
         /// @param data 比較するdouble型のデータ
         /// @return 数値が異なればtrueを出力。
         bool operator!=(const double &data) const;
+        /// @brief Stringクラスの比較演算子(!=)
+        /// @param data 比較するconst char 型の文字列
+        /// @return 文字列が異なればtrueを出力。
+        bool operator!=(const char letter) const;
         /// @brief Stringクラスの比較演算子(!=)
         /// @param data 比較するconst char *型の文字列
         /// @return 文字列が異なればtrueを出力。
@@ -166,6 +246,10 @@ namespace dataObject
         /// @return [String] 本クラスの文字列
         String operator=(const double &data);
         /// @brief Stringクラスの代入演算子(=)
+        /// @param data 代入するconst char 型の文字列
+        /// @return [String] 本クラスの文字列
+        String operator=(const char letter);
+        /// @brief Stringクラスの代入演算子(=)
         /// @param data 代入するconst char *型の文字列
         /// @return [String] 本クラスの文字列
         String operator=(const char *str);
@@ -185,6 +269,10 @@ namespace dataObject
         /// @param data 追加するdouble型のデータ
         /// @return [String] 追加された文字列
         String operator+(const double &data) const;
+        /// @brief Stringクラスの代入演算子(+)
+        /// @param data 追加するconst char型の文字列
+        /// @return [String] 追加された文字列
+        String operator+(const char letter) const;
         /// @brief Stringクラスの代入演算子(+)
         /// @param data 追加するconst char *型の文字列
         /// @return [String] 追加された文字列
@@ -206,6 +294,10 @@ namespace dataObject
         /// @return [String] 本クラスの文字列
         String &operator+=(const double &data);
         /// @brief Stringクラスの代入演算子(+=)
+        /// @param data 追加するconst char型の文字列
+        /// @return [String] 本クラスの文字列
+        String &operator+=(const char letter);
+        /// @brief Stringクラスの代入演算子(+=)
         /// @param data 追加するconst char *型の文字列
         /// @return [String] 本クラスの文字列
         String &operator+=(const char *str);
@@ -218,11 +310,35 @@ namespace dataObject
         /// @param length 取得する文字列の長さ
         /// @return [String] 文字列
         String pop(int start, int length);
+        /// @brief 文字列を置換する関数
+        /// @param before 置換される文字列
+        /// @param after 置換する文字列
+        /// @return 置換済みの文字列
+        String replace(const char *before, const char *after);
+        /// @brief 文字列を置換する関数
+        /// @param before 置換される文字列
+        /// @param after 置換する文字列
+        /// @return 置換済みの文字列
+        String replace(const char *before, const String after);
+        /// @brief 文字列を置換する関数
+        /// @param before 置換される文字列
+        /// @param after 置換する文字列
+        /// @return 置換済みの文字列
+        String replace(const String before, const char *after);
+        /// @brief 文字列を置換する関数
+        /// @param before 置換される文字列
+        /// @param after 置換する文字列
+        /// @return 置換済みの文字列
+        String replace(const String before, const String after);
         /// @brief 文字列の一部を取得する関数
         /// @param start 取得する文字列の先頭の文字の位置
         /// @param length 取得する文字列の長さ
         /// @return [String] 文字列
         String slice(int start, int length) const;
+        /// @brief 文字列を区切り文字列で分割する関数
+        /// @param sep 区切り文字列
+        /// @return [List<String>] 文字列のリスト
+        List<String> split(const char sep);
         /// @brief 文字列を区切り文字列で分割する関数
         /// @param sep 区切り文字列
         /// @return [List<String>] 文字列のリスト
@@ -240,6 +356,11 @@ namespace dataObject
         /// @brief double型へ変換
         /// @return [double] 数値
         double toDouble();
+        /*!
+        @brief 英文字を大文字にする関数
+        @return 変換後の文字列
+        */
+        String upper();
     };
 
     // String型変換
@@ -301,7 +422,7 @@ namespace dataObject
     {
         return String(b);
     }
-    
+
     /// @brief Stringクラスへ変換する関数
     /// @param b boolのポインタ型の参照渡し
     /// @return Stringクラス

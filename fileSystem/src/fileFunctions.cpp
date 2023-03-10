@@ -95,6 +95,109 @@ String fileSystem::getAbsolutePath(String &path)
     return ret;
 }
 
+dataObject::String fileSystem::getCurrentDir(const int size)
+{
+    char buf[size];
+    getcwd(buf, size);
+    return String(buf);
+}
+
+dataObject::List<File> fileSystem::getDirList(const char *path) { return getDirList(File(path)); }
+
+dataObject::List<File> fileSystem::getDirList(const dataObject::String &path) { return getDirList(File(path)); }
+
+dataObject::List<File> fileSystem::getDirList(const File &dir)
+{
+    // 戻り値
+    List<File> ret;
+
+    // ファイルリスト取得
+    auto file_list = getFileList(dir);
+
+    // ディレクトリのみ取得
+    for (int i = 0; i < file_list.getSize(); i++)
+    {
+        if (file_list[i].isdir())
+        {
+            ret.append(file_list[i]);
+        }
+    }
+
+    return ret;
+}
+
+dataObject::List<File> fileSystem::getFileList(const char *path) { return getFileList(File(path)); }
+dataObject::List<File> fileSystem::getFileList(const char *path, const char *extension) { return getFileList(File(path), String(extension)); }
+dataObject::List<File> fileSystem::getFileList(const char *path, const dataObject::String &extension) { return getFileList(File(path), extension); }
+
+dataObject::List<File> fileSystem::getFileList(const dataObject::String &path) { return getFileList(File(path)); }
+dataObject::List<File> fileSystem::getFileList(const dataObject::String &path, const char *extension) { return getFileList(File(path), String(extension)); }
+dataObject::List<File> fileSystem::getFileList(const dataObject::String &path, const dataObject::String &extension) { return getFileList(File(path), extension); }
+
+dataObject::List<File> fileSystem::getFileList(const File &dir)
+{
+    List<File> ret;
+
+    // 存在判定
+    if (!dir.exists())
+    {
+        printf("[ERROR] ファイルがありません!\n");
+        return ret;
+    }
+
+    // ディレクトリ判定
+    if (!dir.isdir())
+    {
+        printf("[ERROR] ディレクトリではありません!\n");
+        return ret;
+    }
+
+    DIR *dir_ptr;
+    dirent *dp;
+
+    if ((dir_ptr = opendir(dir.getPath().getChar())) != NULL)
+    {
+        while ((dp = readdir(dir_ptr)) != NULL)
+        {
+            String file_path = dp->d_name;
+            if (!((file_path == ".") || (file_path == "..")))
+            {
+                file_path = dir.getPath() + file_path;
+                ret.append(File(file_path));
+            }
+        }
+
+        closedir(dir_ptr);
+    }
+
+    return ret;
+}
+
+dataObject::List<File> fileSystem::getFileList(const File &dir, const char *extension)
+{
+    return getFileList(dir, String(extension));
+}
+
+dataObject::List<File> fileSystem::getFileList(const File &dir, const dataObject::String &extension)
+{
+    // 戻り値
+    List<File> ret;
+
+    // ファイルリスト取得
+    auto file_list = getFileList(dir);
+
+    // ディレクトリのみ取得
+    for (int i = 0; i < file_list.getSize(); i++)
+    {
+        if (file_list[i].getExtension() == extension)
+        {
+            ret.append(file_list[i]);
+        }
+    }
+
+    return ret;
+}
+
 List<String> fileSystem::getPathList(String &path)
 {
     List<String> ret;
@@ -108,12 +211,40 @@ List<String> fileSystem::getPathList(String &path)
     else if (OSTYPE == "WINDOWS")
     {
         path_separator = "\\";
-    }else{
+    }
+    else
+    {
         path_separator = "/";
     }
 
     // パス分割
     ret = path.split(path_separator);
+
+    return ret;
+}
+
+dataObject::Int fileSystem::moveCurrentDir(const dataObject::String &path)
+{
+    Int ret = -2;
+
+    // ディレクトリ判定
+    File dir(path);
+    if (!dir.isdir())
+    {
+        ret = -1;
+    }
+    else
+    {
+        // カレントディレクトリ移動
+        if (chdir(dir.getPath().c_str()) == 0)
+        {
+            ret = 0;
+        }
+        else
+        {
+            ret = -2;
+        }
+    }
 
     return ret;
 }
