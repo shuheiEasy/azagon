@@ -8,9 +8,8 @@ var searchData=
   ['del_24',['del',['../classdata_object_1_1_string.html#afc0aca87880f156c1d746ec6e5ddf082',1,'dataObject::String::del(int start, int length)'],['../classdata_object_1_1_string.html#a5fcf7bf5d663337d0f5fddbc421c25a5',1,'dataObject::String::del(int start)'],['../classdata_object_1_1_dict.html#a765a44972da48772ac4c74014983b993',1,'dataObject::Dict::del()'],['../classdata_object_1_1_list.html#a42dedca0f9a094bf328606b6733420f7',1,'dataObject::List::del(int start)'],['../classdata_object_1_1_list.html#a15fcc1d230bf706811b98ff3f0c79079',1,'dataObject::List::del(int start, int end)']]],
   ['dict_25',['Dict',['../classdata_object_1_1_dict.html',1,'dataObject']]],
   ['dict_2ehpp_26',['dict.hpp',['../dict_8hpp.html',1,'']]],
-  ['dict_3c_20dataobject_3a_3astring_2c_20dataobject_3a_3aany_20_3e_27',['Dict&lt; dataObject::String, dataObject::Any &gt;',['../classdata_object_1_1_dict.html',1,'dataObject']]],
-  ['dictitem_28',['DictItem',['../classdata_object_1_1_dict_item.html',1,'dataObject']]],
-  ['dictiterator_29',['DictIterator',['../classdata_object_1_1_dict_iterator.html',1,'dataObject::DictIterator&lt; K_T, V_T &gt;'],['../classdata_object_1_1_dict_iterator.html#aad3fdefeb2511a8625ded52a7ab425f6',1,'dataObject::DictIterator::DictIterator()']]],
-  ['double_30',['Double',['../classdata_object_1_1_double.html',1,'dataObject::Double'],['../classdata_object_1_1_double.html#a758355b2812a1d3daf326fe730afe6c1',1,'dataObject::Double::Double()']]],
-  ['double_2ehpp_31',['double.hpp',['../double_8hpp.html',1,'']]]
+  ['dictitem_27',['DictItem',['../classdata_object_1_1_dict_item.html',1,'dataObject']]],
+  ['dictiterator_28',['DictIterator',['../classdata_object_1_1_dict_iterator.html',1,'dataObject::DictIterator&lt; K_T, V_T &gt;'],['../classdata_object_1_1_dict_iterator.html#aad3fdefeb2511a8625ded52a7ab425f6',1,'dataObject::DictIterator::DictIterator()']]],
+  ['double_29',['Double',['../classdata_object_1_1_double.html',1,'dataObject::Double'],['../classdata_object_1_1_double.html#a758355b2812a1d3daf326fe730afe6c1',1,'dataObject::Double::Double()']]],
+  ['double_2ehpp_30',['double.hpp',['../double_8hpp.html',1,'']]]
 ];
