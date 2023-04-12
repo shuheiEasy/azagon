@@ -26,12 +26,49 @@ JsonFile::~JsonFile()
 }
 
 const char *JsonFile::getType() const { return "JsonFile"; }
-int JsonFile::getSize() const { return json_dict_data.getSize(); }
-const char *JsonFile::getLog() const { return json_dict_data.getLog(); }
+int JsonFile::getSize() const { return json_data.getSize(); }
+const char *JsonFile::getLog() const { return json_data.getLog(); }
 
-dataObject::Dict<dataObject::String, dataObject::Any> &JsonFile::getDict()
+Dict<String, Any> &JsonFile::getDict()
 {
-    return this->json_dict_data;
+    return *(this->json_data.getData<Dict<String, Any>>());
+}
+
+int JsonFile::getDict(Dict<String, Any> *&dict)
+{
+    if (String("Dict") == this->json_data.getType())
+    {
+        dict = this->json_data.getData<Dict<String, Any>>();
+        return 0;
+    }
+
+    return -1;
+}
+
+List<Any> &JsonFile::getList()
+{
+    return *(this->json_data.getData<List<Any>>());
+}
+
+int JsonFile::getList(List<Any> *&list)
+{
+    if (String("List") == this->json_data.getType())
+    {
+        list = this->json_data.getData<List<Any>>();
+        return 0;
+    }
+
+    return -1;
+}
+
+dataObject::Any &JsonFile::operator[](const int key)
+{
+    return *(this->json_data.getData<List<Any>>()->at(key));
+}
+
+dataObject::Any &JsonFile::operator[](const dataObject::String key)
+{
+    return this->json_data.getData<Dict<String, Any>>()->at(key);
 }
 
 int JsonFile::read()
@@ -41,14 +78,51 @@ int JsonFile::read()
         return -2;
     }
 
+    // ファイルの存在確認
+    if (!textFile->isfile())
+    {
+        return -3;
+    }
+
     // Read the json file
     String textData = textFile->read();
 
-    // Analyze the data
-    auto ret = _getObject(textData, json_dict_data);
-    if (ret < 0)
+    // judge list or dict
+    bool dict_flag = false;
+    bool list_flag = false;
+    for (int pos = 0; pos < textData.getSize(); pos++)
     {
-        json_dict_data.clear();
+        if (textData[pos] == "{")
+        {
+            dict_flag = true;
+            break;
+        }
+        if (textData[pos] == "[")
+        {
+            list_flag = true;
+            break;
+        }
+    }
+
+    // Analyze the data
+    int ret = -1;
+    if (dict_flag)
+    {
+        Dict<String, Any> dict_data;
+        ret = _getObject(textData, dict_data);
+        if (ret >= 0)
+        {
+            json_data = dict_data;
+        }
+    }
+    else if (list_flag)
+    {
+        List<Any> list_data;
+        ret = _getList(textData, list_data);
+        if (ret >= 0)
+        {
+            json_data = list_data;
+        }
     }
 
     return ret;
@@ -83,7 +157,7 @@ void JsonFile::setPath(const char *file_path)
 
 void JsonFile::write()
 {
-    String textData = _writeObject(json_dict_data, 0);
+    String textData = _writeObject(*(this->json_data.getData<Dict<String, Any>>()), 0);
 
     if (!textFile->isfile())
     {
