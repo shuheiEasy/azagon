@@ -282,7 +282,6 @@ namespace fileSystem
     {
     private:
         TextFile *textFile;
-        dataObject::Dict<dataObject::String, dataObject::Any> json_dict_data;
 
         dataObject::Any _converter(dataObject::String text);
         int _getList(dataObject::String text, dataObject::List<dataObject::Any> &data);
@@ -294,6 +293,9 @@ namespace fileSystem
         dataObject::String _writeObject(dataObject::Dict<dataObject::String, dataObject::Any> data, int tab);
 
     public:
+        /// @brief JSONデータ
+        dataObject::Any json_data;
+
         /// @brief コンストラクタ
         JsonFile();
         /// @brief コンストラクタ
@@ -310,6 +312,25 @@ namespace fileSystem
         /// @brief Jsonデータの辞書型を取得する関数
         /// @return Jsonデータの辞書型
         dataObject::Dict<dataObject::String, dataObject::Any> &getDict();
+        /// @brief Jsonデータの辞書型を取得する関数
+        /// @param Jsonデータの辞書型
+        /// @return 成功した場合0を返す
+        int getDict(dataObject::Dict<dataObject::String, dataObject::Any> *&dict);
+
+        /// @brief Jsonデータのリスト型を取得する関数
+        /// @return Jsonデータのリスト型
+        dataObject::List<dataObject::Any> &getList();
+        /// @brief Jsonデータのリスト型を取得する関数
+        /// @param Jsonデータのリスト型
+        /// @return 成功した場合0を返す
+        int getList(dataObject::List<dataObject::Any> *&list);
+
+        /// @brief オペレータ(添字演算子)
+        /// @param key キー
+        /// @return 値
+        /// @details 存在しないキーが存在しない場合はキーを登録する
+        dataObject::Any &operator[](const int key);
+        dataObject::Any &operator[](const dataObject::String key);
 
         /// @brief ファイルの再読み込み
         /// @return 読込結果
@@ -336,7 +357,7 @@ namespace fileSystem
     /// @brief カレントディレクトリ取得
     /// @param size バッファのサイズ
     /// @return カレントディレクトリのパス
-    dataObject::String getCurrentDir(const int size=1024);
+    dataObject::String getCurrentDir(const int size = 1024);
     /// @brief ディレクトリ内のディレクトリリスト
     /// @param path ディレクトリのパス
     /// @return List<File> ディレクトリリスト

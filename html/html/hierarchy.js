@@ -10,7 +10,6 @@ var hierarchy =
       [ "dataObject::ArithmeticObject< int >", "classdata_object_1_1_arithmetic_object.html", [
         [ "dataObject::Int", "classdata_object_1_1_int.html", null ]
       ] ],
-      [ "dataObject::Dict< dataObject::String, dataObject::Any >", "classdata_object_1_1_dict.html", null ],
       [ "dataObject::List< dataObject::String >", "classdata_object_1_1_list.html", null ],
       [ "dataObject::List< Format >", "classdata_object_1_1_list.html", null ],
       [ "dataObject::List< fileSystem::File >", "classdata_object_1_1_list.html", null ],

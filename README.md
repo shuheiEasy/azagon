@@ -14,22 +14,28 @@
 [ドキュメント](https://shuheieasy.github.io/azagon/)
 
 ## インストール方法
-1. 本リポジトリをダウンロードした場所へ移動
-2. ビルド用のフォルダを作成し移動する
+1. 関連パッケージのインストール
+    ```bash
+    sudo apt -y install cmake \
+    gcc g++ \
+    language-pack-ja
+    ```
+2. 本リポジトリをダウンロードした場所へ移動
+3. ビルド用のフォルダを作成し移動する
     (例)
     ```bash
     mkdir build
     cd build
     ```
-3. 下記コマンドを実行する
+4. 下記コマンドを実行する
     ```bash
     cmake .. -DINSTALL_FLAG=ON
     ```
-4. ビルドし、インストール
+5. ビルドし、インストール
     ```bash
     sudo make install
     ```
-5. パスを通す
+6. パスを通す
     ```bash
     export LD_LIBRARY_PATH=/usr/local/lib/azagon:${LD_LIBRARY_PATH}
     ```

@@ -5,13 +5,13 @@ using namespace timeSystem;
 
 Datetime::Datetime()
 {
-    _formatter.setFormat("${year}年${month}月${day}日 ${hour}時${min}分${sec}秒 ${msec}");
+    _formatter.setFormat("${year}-${month}-${day} ${hour}:${min}:${sec} ${msec}");
     now();
 }
 
 Datetime::Datetime(int year, int month, int day, int hour, int min, int sec, int msec)
 {
-    _formatter.setFormat("${year}年${month}月${day}日 ${hour}時${min}分${sec}秒 ${msec}");
+    _formatter.setFormat("${year}-${month}-${day} ${hour}:${min}:${sec} ${msec}");
     _converter(year, month, day, hour, min, sec, msec);
     _generateText();
 }
@@ -124,7 +124,6 @@ void Datetime::_converter(int year, int month, int day, int hour, int min, int s
         _month = 12 + (month % 12);
         _year += (month / 12);
         _year--;
-        printf("%d!!!\n", (month / 12));
     }
     else if (month > 12)
     {
