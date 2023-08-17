@@ -284,17 +284,17 @@ namespace fileSystem
         TextFile *textFile;
 
         dataObject::Any _converter(dataObject::String text);
-        int _getList(dataObject::String text, dataObject::List<dataObject::Any> &data);
-        int _getObject(dataObject::String text, dataObject::Dict<dataObject::String, dataObject::Any> &data);
-        int _getString(dataObject::String text, dataObject::String &data);
+        int _getList(dataObject::String text, dataObject::List<dataObject::Any> &data_);
+        int _getObject(dataObject::String text, dataObject::Dict<dataObject::String, dataObject::Any> &data_);
+        int _getString(dataObject::String text, dataObject::String &data_);
 
         dataObject::String _writeAny(dataObject::Any value, int tab);
-        dataObject::String _writeList(dataObject::List<dataObject::Any> data, int tab);
-        dataObject::String _writeObject(dataObject::Dict<dataObject::String, dataObject::Any> data, int tab);
+        dataObject::String _writeList(dataObject::List<dataObject::Any> data_, int tab);
+        dataObject::String _writeObject(dataObject::Dict<dataObject::String, dataObject::Any> data_, int tab);
 
     public:
         /// @brief JSONデータ
-        dataObject::Any json_data;
+        dataObject::Any data;
 
         /// @brief コンストラクタ
         JsonFile();
@@ -336,6 +336,11 @@ namespace fileSystem
         /// @return 読込結果
         /// @details 読込成功時に0を返す
         int read();
+
+        /// @brief JSONデータを文字列形式で設定する
+        /// @param data JSONデータを表す文字列
+        int setData(const dataObject::String &data);
+        int setData(const char *data);
 
         /// @brief Jsonファイルのパスを設定する
         /// @param file_path ファイルのパス
