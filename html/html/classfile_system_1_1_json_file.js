@@ -14,8 +14,10 @@ var classfile_system_1_1_json_file =
     [ "operator[]", "classfile_system_1_1_json_file.html#a1af8c11c1d2c31f2bec521f9bb452957", null ],
     [ "operator[]", "classfile_system_1_1_json_file.html#add9199994fe6128d4027cf00b1ce3230", null ],
     [ "read", "classfile_system_1_1_json_file.html#aac30bcdc09b3f42f7055c33085a8ae6b", null ],
+    [ "setData", "classfile_system_1_1_json_file.html#ad6651b36a5c2d119c8c7ceb94dc4cea3", null ],
+    [ "setData", "classfile_system_1_1_json_file.html#a684a51c98a4bb079fbbeaa1698230673", null ],
     [ "setPath", "classfile_system_1_1_json_file.html#aaae4ba4eb9143ca60c9f4adaae73f990", null ],
     [ "setPath", "classfile_system_1_1_json_file.html#ac163942e640d37e202ef04022abb7fc5", null ],
     [ "write", "classfile_system_1_1_json_file.html#af572eef2154b4c6abaa68c0c5d9f343a", null ],
-    [ "json_data", "classfile_system_1_1_json_file.html#add2a499d479b826be4258635dd7a3427", null ]
+    [ "data", "classfile_system_1_1_json_file.html#a6ff1ef67a845b136167f58c1937dc5f9", null ]
 ];
