@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">azagon
-   &#160;<span id="projectnumber">0.6.1</span>
+   &#160;<span id="projectnumber">0.6.2</span>
    </div>
    <div id="projectbrief">c++用共通ライブラリ</div>
   </td>
@@ -166,6 +166,12 @@ $(document).ready(function(){initNavTree('classfile_system_1_1_json_file.html','
 <tr class="memitem:aac30bcdc09b3f42f7055c33085a8ae6b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfile_system_1_1_json_file.html#aac30bcdc09b3f42f7055c33085a8ae6b">read</a> ()</td></tr>
 <tr class="memdesc:aac30bcdc09b3f42f7055c33085a8ae6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルの再読み込み  <a href="classfile_system_1_1_json_file.html#aac30bcdc09b3f42f7055c33085a8ae6b">[詳解]</a><br /></td></tr>
 <tr class="separator:aac30bcdc09b3f42f7055c33085a8ae6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684a51c98a4bb079fbbeaa1698230673"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfile_system_1_1_json_file.html#a684a51c98a4bb079fbbeaa1698230673">setData</a> (const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;<a class="el" href="classfile_system_1_1_json_file.html#a6ff1ef67a845b136167f58c1937dc5f9">data</a>)</td></tr>
+<tr class="memdesc:a684a51c98a4bb079fbbeaa1698230673"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONデータを文字列形式で設定する  <a href="classfile_system_1_1_json_file.html#a684a51c98a4bb079fbbeaa1698230673">[詳解]</a><br /></td></tr>
+<tr class="separator:a684a51c98a4bb079fbbeaa1698230673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6651b36a5c2d119c8c7ceb94dc4cea3"><td class="memItemLeft" align="right" valign="top"><a id="ad6651b36a5c2d119c8c7ceb94dc4cea3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>setData</b> (const char *<a class="el" href="classfile_system_1_1_json_file.html#a6ff1ef67a845b136167f58c1937dc5f9">data</a>)</td></tr>
+<tr class="separator:ad6651b36a5c2d119c8c7ceb94dc4cea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac163942e640d37e202ef04022abb7fc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfile_system_1_1_json_file.html#ac163942e640d37e202ef04022abb7fc5">setPath</a> (const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;file_path)</td></tr>
 <tr class="memdesc:ac163942e640d37e202ef04022abb7fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jsonファイルのパスを設定する  <a href="classfile_system_1_1_json_file.html#ac163942e640d37e202ef04022abb7fc5">[詳解]</a><br /></td></tr>
 <tr class="separator:ac163942e640d37e202ef04022abb7fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,10 +190,10 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:add2a499d479b826be4258635dd7a3427"><td class="memItemLeft" align="right" valign="top"><a id="add2a499d479b826be4258635dd7a3427"></a>
-<a class="el" href="classdata_object_1_1_any.html">dataObject::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfile_system_1_1_json_file.html#add2a499d479b826be4258635dd7a3427">json_data</a></td></tr>
-<tr class="memdesc:add2a499d479b826be4258635dd7a3427"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONデータ <br /></td></tr>
-<tr class="separator:add2a499d479b826be4258635dd7a3427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff1ef67a845b136167f58c1937dc5f9"><td class="memItemLeft" align="right" valign="top"><a id="a6ff1ef67a845b136167f58c1937dc5f9"></a>
+<a class="el" href="classdata_object_1_1_any.html">dataObject::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfile_system_1_1_json_file.html#a6ff1ef67a845b136167f58c1937dc5f9">data</a></td></tr>
+<tr class="memdesc:a6ff1ef67a845b136167f58c1937dc5f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONデータ <br /></td></tr>
+<tr class="separator:a6ff1ef67a845b136167f58c1937dc5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>Jsonファイルクラス </p>
@@ -241,7 +247,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>Jsonデータの辞書型を取得する関数 </p>
 <dl class="section return"><dt>戻り値</dt><dd>Jsonデータの辞書型 </dd></dl>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00032">32</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00035">35</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -270,7 +276,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>成功した場合0を返す </dd></dl>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00037">37</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00040">40</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -292,7 +298,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>Jsonデータのリスト型を取得する関数 </p>
 <dl class="section return"><dt>戻り値</dt><dd>Jsonデータのリスト型 </dd></dl>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00048">48</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00051">51</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -321,7 +327,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>成功した場合0を返す </dd></dl>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00053">53</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00056">56</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -353,7 +359,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 <p><a class="el" href="classdata_object_1_1_data_object.html#ab60ca9474d1618e99566b4ac3ab9c0d2">dataObject::DataObject</a>を再実装しています。</p>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00030">30</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00033">33</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -385,7 +391,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 <p><a class="el" href="classdata_object_1_1_data_object.html#a7f3dbafcf278269e4cf28dbcddb9e913">dataObject::DataObject</a>を再実装しています。</p>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00029">29</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00032">32</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -417,7 +423,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 <p><a class="el" href="classdata_object_1_1_data_object.html#ac3908b9d0c163de3695f99996a844c8d">dataObject::DataObject</a>を再実装しています。</p>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00028">28</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00031">31</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -447,7 +453,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <dl class="section return"><dt>戻り値</dt><dd>値</dd></dl>
 <p>存在しないキーが存在しない場合はキーを登録する </p>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00064">64</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00067">67</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -470,7 +476,35 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <dl class="section return"><dt>戻り値</dt><dd>読込結果</dd></dl>
 <p>読込成功時に0を返す </p>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00074">74</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00077">77</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a684a51c98a4bb079fbbeaa1698230673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684a51c98a4bb079fbbeaa1698230673">&#9670;&nbsp;</a></span>setData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int JsonFile::setData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONデータを文字列形式で設定する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>JSONデータを表す文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00097">97</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -498,7 +532,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00131">131</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="json_file_8cpp_source.html">jsonFile.cpp</a> の <a class="el" href="json_file_8cpp_source.html#l00145">145</a> 行目に定義があります。</p>
 
 </div>
 </div>

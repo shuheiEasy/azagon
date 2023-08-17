@@ -22,23 +22,26 @@ JsonFile::JsonFile(const String &file_path)
 
 JsonFile::~JsonFile()
 {
-    delete textFile;
+    if (textFile != nullptr)
+    {
+        delete textFile;
+    }
 }
 
 const char *JsonFile::getType() const { return "JsonFile"; }
-int JsonFile::getSize() const { return json_data.getSize(); }
-const char *JsonFile::getLog() const { return json_data.getLog(); }
+int JsonFile::getSize() const { return data.getSize(); }
+const char *JsonFile::getLog() const { return data.getLog(); }
 
 Dict<String, Any> &JsonFile::getDict()
 {
-    return *(this->json_data.getData<Dict<String, Any>>());
+    return *(this->data.getData<Dict<String, Any>>());
 }
 
 int JsonFile::getDict(Dict<String, Any> *&dict)
 {
-    if (String("Dict") == this->json_data.getType())
+    if (String("Dict") == this->data.getType())
     {
-        dict = this->json_data.getData<Dict<String, Any>>();
+        dict = this->data.getData<Dict<String, Any>>();
         return 0;
     }
 
@@ -47,14 +50,14 @@ int JsonFile::getDict(Dict<String, Any> *&dict)
 
 List<Any> &JsonFile::getList()
 {
-    return *(this->json_data.getData<List<Any>>());
+    return *(this->data.getData<List<Any>>());
 }
 
 int JsonFile::getList(List<Any> *&list)
 {
-    if (String("List") == this->json_data.getType())
+    if (String("List") == this->data.getType())
     {
-        list = this->json_data.getData<List<Any>>();
+        list = this->data.getData<List<Any>>();
         return 0;
     }
 
@@ -63,12 +66,12 @@ int JsonFile::getList(List<Any> *&list)
 
 dataObject::Any &JsonFile::operator[](const int key)
 {
-    return *(this->json_data.getData<List<Any>>()->at(key));
+    return *(this->data.getData<List<Any>>()->at(key));
 }
 
 dataObject::Any &JsonFile::operator[](const dataObject::String key)
 {
-    return this->json_data.getData<Dict<String, Any>>()->at(key);
+    return this->data.getData<Dict<String, Any>>()->at(key);
 }
 
 int JsonFile::read()
@@ -87,17 +90,23 @@ int JsonFile::read()
     // Read the json file
     String textData = textFile->read();
 
+    // Analyze the data
+    return this->setData(textData);
+}
+
+int JsonFile::setData(const dataObject::String &data)
+{
     // judge list or dict
     bool dict_flag = false;
     bool list_flag = false;
-    for (int pos = 0; pos < textData.getSize(); pos++)
+    for (int pos = 0; pos < data.getSize(); pos++)
     {
-        if (textData[pos] == "{")
+        if (data[pos] == "{")
         {
             dict_flag = true;
             break;
         }
-        if (textData[pos] == "[")
+        if (data[pos] == "[")
         {
             list_flag = true;
             break;
@@ -109,23 +118,28 @@ int JsonFile::read()
     if (dict_flag)
     {
         Dict<String, Any> dict_data;
-        ret = _getObject(textData, dict_data);
+        ret = _getObject(data, dict_data);
         if (ret >= 0)
         {
-            json_data = dict_data;
+            this->data = dict_data;
         }
     }
     else if (list_flag)
     {
         List<Any> list_data;
-        ret = _getList(textData, list_data);
+        ret = _getList(data, list_data);
         if (ret >= 0)
         {
-            json_data = list_data;
+            this->data = list_data;
         }
     }
 
     return ret;
+}
+
+int JsonFile::setData(const char *data)
+{
+    return this->setData(String(data));
 }
 
 void JsonFile::setPath(const String &file_path)
@@ -157,7 +171,7 @@ void JsonFile::setPath(const char *file_path)
 
 void JsonFile::write()
 {
-    String textData = _writeObject(*(this->json_data.getData<Dict<String, Any>>()), 0);
+    String textData = _writeObject(*(this->data.getData<Dict<String, Any>>()), 0);
 
     if (!textFile->isfile())
     {
@@ -195,7 +209,7 @@ Any JsonFile::_converter(String text)
     return ret;
 }
 
-int JsonFile::_getList(String text, List<Any> &data)
+int JsonFile::_getList(String text, List<Any> &data_)
 {
     // データ位置
     int pos = 1;
@@ -214,7 +228,7 @@ int JsonFile::_getList(String text, List<Any> &data)
         {
             if (append_flag && buffer != "")
             {
-                data.append(this->_converter(buffer));
+                data_.append(this->_converter(buffer));
             }
             append_flag = true;
             end_flag = true;
@@ -235,7 +249,7 @@ int JsonFile::_getList(String text, List<Any> &data)
 
             if (append_flag)
             {
-                data.append(tmp);
+                data_.append(tmp);
             }
             append_flag = false;
         }
@@ -253,7 +267,7 @@ int JsonFile::_getList(String text, List<Any> &data)
 
             if (append_flag)
             {
-                data.append(tmp);
+                data_.append(tmp);
             }
             append_flag = false;
         }
@@ -270,7 +284,7 @@ int JsonFile::_getList(String text, List<Any> &data)
 
             if (append_flag)
             {
-                data.append(buffer);
+                data_.append(buffer);
             }
             append_flag = false;
             buffer.clear();
@@ -281,7 +295,7 @@ int JsonFile::_getList(String text, List<Any> &data)
             {
                 if (append_flag && buffer != "")
                 {
-                    data.append(this->_converter(buffer));
+                    data_.append(this->_converter(buffer));
                 }
                 append_flag = true;
                 buffer.clear();
@@ -306,7 +320,7 @@ int JsonFile::_getList(String text, List<Any> &data)
     return pos + 1;
 }
 
-int JsonFile::_getObject(String text, Dict<String, Any> &data)
+int JsonFile::_getObject(String text, Dict<String, Any> &data_)
 {
     // データ位置
     int pos = 1;
@@ -322,7 +336,7 @@ int JsonFile::_getObject(String text, Dict<String, Any> &data)
         {
             if (buffer != "")
             {
-                data[key] = this->_converter(buffer);
+                data_[key] = this->_converter(buffer);
                 key.clear();
                 buffer.clear();
             }
@@ -348,7 +362,7 @@ int JsonFile::_getObject(String text, Dict<String, Any> &data)
                 return -1;
             }
 
-            data[key] = tmp;
+            data_[key] = tmp;
             key.clear();
             buffer.clear();
             key_flag = true;
@@ -372,7 +386,7 @@ int JsonFile::_getObject(String text, Dict<String, Any> &data)
                 return -1;
             }
 
-            data[key] = tmp;
+            data_[key] = tmp;
             key.clear();
             buffer.clear();
             key_flag = true;
@@ -394,7 +408,7 @@ int JsonFile::_getObject(String text, Dict<String, Any> &data)
             }
             else
             {
-                data[key] = buffer;
+                data_[key] = buffer;
                 key.clear();
                 buffer.clear();
             }
@@ -411,7 +425,7 @@ int JsonFile::_getObject(String text, Dict<String, Any> &data)
                 key_flag = true;
                 if (buffer != "")
                 {
-                    data[key] = this->_converter(buffer);
+                    data_[key] = this->_converter(buffer);
                     key.clear();
                     buffer.clear();
                 }
@@ -436,7 +450,7 @@ int JsonFile::_getObject(String text, Dict<String, Any> &data)
     return pos + 1;
 }
 
-int JsonFile::_getString(String text, String &data)
+int JsonFile::_getString(String text, String &data_)
 {
     // データ位置
     int pos = 1;
@@ -461,7 +475,7 @@ int JsonFile::_getString(String text, String &data)
         return -1;
     }
 
-    data = text.slice(1, pos - 1);
+    data_ = text.slice(1, pos - 1);
 
     return pos + 1;
 }
@@ -514,11 +528,11 @@ String JsonFile::_writeAny(Any value, int tab)
     return ret;
 }
 
-String JsonFile::_writeList(List<Any> data, int tab)
+String JsonFile::_writeList(List<Any> data_, int tab)
 {
     String ret = "[\n";
 
-    for (int i = 0; i < len(data); i++)
+    for (int i = 0; i < len(data_); i++)
     {
         // コロンつける
         if (i > 0)
@@ -533,8 +547,8 @@ String JsonFile::_writeList(List<Any> data, int tab)
         }
 
         // 値書き込み
-        Any value = data[i];
-        ret += _writeAny(data[i], tab);
+        Any value = data_[i];
+        ret += _writeAny(data_[i], tab);
     }
 
     // 後始末
@@ -548,10 +562,10 @@ String JsonFile::_writeList(List<Any> data, int tab)
     return ret;
 }
 
-String JsonFile::_writeObject(Dict<String, Any> data, int tab)
+String JsonFile::_writeObject(Dict<String, Any> data_, int tab)
 {
     String ret = "{\n";
-    auto keys = data.getKeys();
+    auto keys = data_.getKeys();
 
     for (int i = 0; i < len(keys); i++)
     {
@@ -572,7 +586,7 @@ String JsonFile::_writeObject(Dict<String, Any> data, int tab)
         ret += keys[i] + "\": ";
 
         // 値書き込み
-        ret += _writeAny(data[keys[i]], tab);
+        ret += _writeAny(data_[keys[i]], tab);
     }
 
     // 後始末
